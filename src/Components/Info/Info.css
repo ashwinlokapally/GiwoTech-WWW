@@ -1,0 +1,100 @@
+.support-supported{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+.highlight{
+    color: #B80C09;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .science-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .science-section .content {
+    max-width: 60%;
+  }
+  
+  .science-section h2 {
+    font-size: 2.5rem;
+    color: #0A0A0A;
+  }
+  
+  .science-section p {
+    font-size: 1.2rem;
+    color: #0A0A0A;
+  }
+  
+  .science-section .btn {
+    background-color: #4E5B73;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .science-section .btn:hover {
+    background-color: #4E5B73;
+  }
+  
+  .next-steps-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .next-steps-section .content {
+    max-width: 80%;
+  }
+  
+  .next-steps-section h2 {
+    font-size: 2.5rem;
+    color: #0A0A0A;
+  }
+  
+  .next-steps-section .highlight {
+    color: #B80C09; 
+  }
+  
+  .next-steps-section p {
+    font-size: 1.2rem;
+    color: #0A0A0A;
+  }
+  
+  .next-steps-section .btn {
+    background-color: #4E5B73;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .next-steps-section .btn:hover {
+    background-color: #555;
+  }
+  
+  .shapes img {
+      width: auto;
+      height: auto;
+      max-width:100%;
+  }
+
+  .content {
+    border-radius: 10px;
+    box-shadow: #9AA3BA 0px 4px 12px;
+}
+.support{
+    background-image: url('src\assets\White_field_area.svg');
+}

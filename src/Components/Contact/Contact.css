@@ -1,0 +1,28 @@
+.contact{
+    margin: 80px auto;
+    max-width: 90%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.contact-main{
+    background-color: #0a0a0a;
+}
+.contact-heading{
+    color: #E1EFFF;
+    margin-top: 35px;
+}
+.map{
+    flex-basis: 50%;
+}
+.contact form input, .contact form textarea{
+    display: block;
+    width: 100%;
+    background: #E1EFFF;
+    padding: 15px;
+    border: 0;
+    outline: 0;
+    margin-top: 5px;
+    margin-bottom: 15p;
+    resize: none;
+}

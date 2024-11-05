@@ -1,0 +1,17 @@
+.hero{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0A0A0A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+.hero-text{
+    text-align: left;
+    max-width: 800px;
+    color: #E1EFFF;
+}
+.hero-media{
+    display: block;
+}

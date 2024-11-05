@@ -1,0 +1,44 @@
+/* Footer Styles */
+.footer {
+    background-color: #E1EFFF; /* Light blue background */
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid; /* Optional top border */
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer p {
+    color: #0A0A0A; /* Dark text color */
+    margin: 0;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 10px; /* Space between icons */
+  }
+  
+  .icon {
+    font-size: 20px; /* Adjust size of the icons */
+    color: #0A0A0A; /* Dark color for icons */
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 15px; /* Space between links */
+  }
+  
+  .footer-link {
+    color: #0A0A0A; /* Link color */
+    text-decoration: none;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline; /* Underline on hover */
+  }

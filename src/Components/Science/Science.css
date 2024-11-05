@@ -1,0 +1,102 @@
+/* General styling for the science section */
+.science {
+    padding: 5%;
+    background-color: #E1EFFF;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    margin-top: 80px;
+
+  }
+  
+  .science-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    text-align: center;
+    display: block;
+    justify-content: center;
+  }
+  
+  .science-heading h1 {
+    font-size: 2.5em;
+    color: #0A0A0A;
+    margin-bottom: 10px;
+  }
+  
+  .science-heading p {
+    font-size: 1.2em;
+    color: #0A0A0A;
+  }
+  
+  /* Styling for the body sections */
+  .science-body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Space between sections */
+  }
+  
+  /* Shared styling for each section */
+  .section-one, .section-two, .section-three {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E1EFFF;
+    border-radius: 20px;
+    padding: 20px;
+    /* box-shadow: 0px 4px 10px rgba(0,0,0,0.1); */
+  }
+  
+  .science-content {
+     flex-basis: 55%; 
+  }
+  .body-one{
+    text-align: left;
+  }
+  .body-two{
+    text-align: left;
+    padding-left: 25px;
+  }
+  .body-three{
+    text-align: left;
+  }
+  .science-content h2 {
+    font-size: 2em;
+    color: #0A0A0A;
+  }
+  
+  .science-content p {
+    font-size: 1.2em;
+    color: #0A0A0A;
+  }
+  
+  /* Styling for images */
+  .shapes {
+    flex-basis: 60%;
+  }
+  
+  .shapes img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for images */
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    
+      .science-body {
+          gap: 20px; /* Reduce gap between sections on smaller screens */
+      }
+  
+      .section-one, .section-two, .section-three {
+          flex-direction: column; /* Stack content and image vertically */
+          text-align: center; /* Center text on smaller screens */
+      }
+  
+      .content, .shapes {
+          flex-basis: auto; /* Allow content and image to take full width */
+      }
+  
+      .shapes img {
+          margin-top: 20px; /* Add space between text and image */
+      }
+  }
