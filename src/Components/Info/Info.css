@@ -17,7 +17,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px;
+    padding: 40px; 
   }
   
   .science-section .content {
@@ -92,9 +92,96 @@ body {
   }
 
   .content {
+    box-sizing: border-box;
     border-radius: 10px;
     box-shadow: #9AA3BA 0px 4px 12px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    border: 2px solid #4E5B73; 
+    border-radius: 10px;
 }
 .support{
     background-image: url('src\assets\White_field_area.svg');
+}
+.Supported-section{
+  background-color: #0A0A0A;
+  color: #E1EFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 55px;
+  padding-top: 55px;
+}
+/* -------------------------------------- */
+
+.logo-slider {
+  background: black;
+  height: 100px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.logo-slide-track {
+  animation: scroll 40s linear infinite;
+  display: flex;
+  width: calc(250px * 10);
+}
+
+.logo-slide {
+  height: 100px;
+  width: 250px;
+  padding: 15px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 5));
+  }
+}
+
+.logo-slider:hover .logo-slide-track {
+  animation-play-state: paused;
+}
+
+/* -------------- */
+
+.final-section{
+  background-color: #0A0A0A;
+  color: #E1EFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  height: 50vh;
+}
+
+.final-section-content {
+  text-align: center;
+}
+.final-section-content h2{
+  padding-bottom: 15px;
+}
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.input-box{
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.final-section button {
+  padding: 10px;
 }

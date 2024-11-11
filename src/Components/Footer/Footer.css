@@ -1,9 +1,8 @@
-/* Footer Styles */
 .footer {
-    background-color: #E1EFFF; /* Light blue background */
+    background-color: #E1EFFF;
     padding: 20px;
     text-align: center;
-    border-top: 2px solid; /* Optional top border */
+    border-top: 2px solid;
   }
   
   .footer-content {
@@ -15,30 +14,30 @@
   }
   
   .footer p {
-    color: #0A0A0A; /* Dark text color */
+    color: #0A0A0A;
     margin: 0;
   }
   
   .social-links {
     display: flex;
-    gap: 10px; /* Space between icons */
+    gap: 10px;
   }
   
   .icon {
-    font-size: 20px; /* Adjust size of the icons */
-    color: #0A0A0A; /* Dark color for icons */
+    font-size: 20px;
+    color: #0A0A0A;
   }
   
   .footer-links {
     display: flex;
-    gap: 15px; /* Space between links */
+    gap: 15px;
   }
   
   .footer-link {
-    color: #0A0A0A; /* Link color */
+    color: #0A0A0A;
     text-decoration: none;
   }
   
   .footer-link:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
   }
