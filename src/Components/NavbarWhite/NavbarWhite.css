@@ -1,0 +1,29 @@
+nav .container-white{
+    width:100%;
+    background: #0A0A0A;
+    color: #0A0A0A;
+    padding: 4px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+.logo-white{
+    width: 150px;
+    height: 60px;
+}
+.container-white ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 5px 20px;
+    font-size: 16px;
+}
+.link-white{
+    display: inline-block;
+    list-style: none;
+    margin: 5px 20px;
+    font-size: 16px;
+}

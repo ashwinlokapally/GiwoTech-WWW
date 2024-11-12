@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './Info.css'
 import nersc from '../../assets/NERSC_BLACK.svg'
 import nsf from '../../assets/NSF_Small.svg'
 import bg from '../../assets/White_field_area.svg'
+import { useNavigate } from 'react-router-dom'
 
 const Info = () => {
+  const navigate = useNavigate();
+  const emailInputRef = useRef();
+
+
   return (
     <div className='support'>
         <div className='support-supported'>
@@ -71,8 +76,10 @@ const Info = () => {
         <h2>Ready to work at the forefront of <br></br>innovation?</h2>
         <p>Powering the world’s best creative teams. From<br></br> next-gen startups to established enterprises.</p>
         <div className="input-container">
-          <input type="email" placeholder="Enter email address" />
-          <button className='btn'>Learn More</button>
+          <input type="email" ref={emailInputRef} placeholder="Enter email address" />
+          <button className='btn' onClick={() => {
+              navigate(`/contact?email=${emailInputRef.current.value}`);
+          }}>Learn More</button>
         </div>
       </div>
     </div>

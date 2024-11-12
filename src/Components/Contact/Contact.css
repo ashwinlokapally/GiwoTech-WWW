@@ -5,14 +5,32 @@
     align-content: center;
     justify-content: center;
 }
+
 .contact-main{
     background-color: #0a0a0a;
+    padding-bottom: 100px;
+}
+.contact-head{
+    background-color: #0a0a0a;
+    color: #E1EFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 55px;
 }
 .contact-heading{
     color: #E1EFFF;
+    text-transform: uppercase;
     margin-top: 35px;
+    padding-top: 50px;
+    margin-bottom: 15px;
 }
-.map{
+
+
+/* .map{
     flex-basis: 50%;
 }
 .contact form input, .contact form textarea{
@@ -25,4 +43,113 @@
     margin-top: 5px;
     margin-bottom: 15p;
     resize: none;
+} */
+
+.contact {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.map {
+    border-radius: 8px;
+    margin-right: 30px;
+}
+.map iframe{
+    border-radius: 55px;
+}
+.map p{
+    color: #E1EFFF;
+}
+.map-description{
+    display: flex;
+}
+.map-description button {
+    width: 44px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+::placeholder {
+    color: #E1EFFF;
+    opacity: 1; /* Firefox */
+  }
+.contact-form p{
+    color: #E1EFFF;
+}
+.contact-email-copy{
+    display: flex;
+    
+}
+.contact-email-copy button{
+    height: 24px;
+    width: 24px;
+}
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: #0a0a0a;
+    color: #E1EFFF;
+    border: 1px solid #E1EFFF;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.contact-form .contact-btn {
+    height: 44px;
+    width: 160px;
+    padding: 15px;
+    background-color: #4E5B73;
+    color: #E1EFFF; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #E1EFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.contact-info p {
+    margin: 0;
+}
+
+.contact-info p:nth-child(2) {
+    color: #5a6dfd;
+    cursor: pointer;
+}
+
+@media (max-width: 950px) {
+    .contact {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;   /* Center align the items */
+        gap: 20px;             /* Add some spacing between sections */
+    }
+
+    .map, .contact-form {
+        flex-basis: 100%;       /* Make each section take full width */
+        max-width: 80%;        /* Ensure they expand to full width */
+        margin-bottom: 20px;   /* Add spacing between map and form */
+        width: 100%;           /* Ensure full width for each element */
+    }
+
+    .map iframe {
+        width: 100%;           /* Ensure iframe takes full width */
+    }
 }
