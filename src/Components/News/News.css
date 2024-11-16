@@ -1,4 +1,8 @@
-div{
-    background-color: #E1FFFF;
-    color: #0A0A0A;
+.carousel-container {
+    margin-top: 50px;
+}
+
+.slick-slide img {
+    width: 100%;
+    height: auto;
 }

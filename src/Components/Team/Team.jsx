@@ -18,14 +18,14 @@ const Team = () => {
           title="CEO & Co-Founder"
           imageUrl="src\assets\AshwinLokapally.png"
           bio="PhD in molecular biology with over a decade of experience in gene and protein functions."
-          linkedinUrl="https://www.linkedin.com/in/ashwin-lokapally"
+          linkedinUrl="https://www.linkedin.com/in/ashwinlokapally/"
         />
         <TeamMember
           name="Razvan Marinescu"
           title="CTO & Co-Founder"
           imageUrl="src\assets\RazvanMarinescu.png"
           bio="Expert in AI-driven drug discovery with a focus on computational biology."
-          linkedinUrl="https://www.linkedin.com/in/razvan-marinescu"
+          linkedinUrl="https://www.linkedin.com/in/razvan-valentin-marinescu-29b09442/"
         />
       </div>
 

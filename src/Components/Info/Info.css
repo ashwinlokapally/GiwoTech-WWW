@@ -2,7 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 0;
+    padding-top: 25px;
 }
 .highlight{
     color: #B80C09;
@@ -22,7 +23,41 @@ body {
   
   .science-section .content {
     max-width: 60%;
+    background-color: rgba(255, 255, 255, 0.4);
+
+  -webkit-backdrop-filter: blur(5px);
+
+  backdrop-filter: blur(5px);
+    backdrop-filter: blur(2px);
   }
+  .blurred-background {
+    width: 100%;
+    height: 300px;
+    background-image: url('src\assets\White_field_area.svg'); /* Add your background image */
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    position: relative; /* Ensure content stays on top */
+    z-index: 2;
+    padding: 20px;
+    color: white;
+}
+
+.blurred-background::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px); /* Adjust the blur intensity */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    background-color: rgba(255, 255, 255, 0.3); /* Optional semi-transparent layer for better visibility */
+}
   
   .science-section h2 {
     font-size: 2.5rem;
@@ -99,11 +134,12 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     padding-right: 20px;
-    border: 2px solid #4E5B73; 
-    border-radius: 10px;
+    border: 1px solid #4E5B73; 
+    border-radius: 25px;
 }
 .support{
-    background-image: url('src\assets\White_field_area.svg');
+    /* background-image: url('src\assets\White_field_area.svg'); */
+    background-color: #E1EFFF;
 }
 .Supported-section{
   background-color: #0A0A0A;
@@ -173,15 +209,30 @@ body {
 }
 .input-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 20px;
+  border: 1px solid #E1EFFF;
+  border-radius: 12px;
+  width: 80%;
+  margin-left: 35px;
 }
 
 .input-box{
+  width: 60%;
   margin-right: 10px;
-  padding: 10px;
+  padding: 12px;
+  padding-right: 25px;
+  border-radius: 10px;
+}
+::placeholder {
+  color: #4E5B73;
+  opacity: 1; /* Firefox */
+}
+.input-box::-webkit-input-placeholder {
+  color: #4E5B73; /* Same color for consistency */
 }
 
 .final-section button {
   padding: 10px;
 }
+

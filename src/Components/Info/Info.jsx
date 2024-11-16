@@ -19,11 +19,11 @@ const Info = () => {
         </div>
         <br></br>
         
-        <div className="science-section">
+        <div className="science-section ">
         <div className="shapes">
           <img src="src\assets\The_Science_behind_it_V.svg" alt="" />
         </div>
-        <div className="content">
+        <div className="content blurred-background">
           <h2>
             The <span className="highlight">Science</span> behind it
           </h2>
@@ -58,11 +58,11 @@ const Info = () => {
       </div>
       <div className="logo-slider">
       <div className="logo-slide-track">
-        <img className="logo-slide" src='src/assets/MIT.svg' alt="MIT logo" />
-        <img className="logo-slide" src='src/assets/NERSE.svg' alt="NERSE logo" />
-        <img className="logo-slide" src='src/assets/NEI_Crops.svg' alt="NEI Crops logo" />
-        <img className="logo-slide" src='src/assets/Venture_Monitoring_Networks.svg' alt="Venture Monitoring Networks logo" />
-        <img className="logo-slide" src='src/assets/The_Engine.svg' alt="The Engine logo" />
+        <a href='https://vms.mit.edu/'><img className="logo-slide" src='src/assets/MIT.svg' alt="MIT logo" /></a>
+        <a href='https://www.nersc.gov/'><img className="logo-slide" src='src/assets/NERSE.svg' alt="NERSE logo" /></a>
+        <a href='https://icorps.mit.edu/'><img className="logo-slide" src='src/assets/NEI_Crops.svg' alt="NEI Crops logo" /></a>
+        <a href='https://vmn.sites.northeastern.edu/'><img className="logo-slide" src='src/assets/Venture_Monitoring_Networks.svg' alt="Venture Monitoring Networks logo" /></a>
+        <a href='https://engine.xyz/'><img className="logo-slide" src='src/assets/The_Engine.svg' alt="The Engine logo" /></a>
         
         <img className="logo-slide" src='src/assets/MIT.svg' alt="MIT logo" />
         <img className="logo-slide" src='src/assets/NERSE.svg' alt="NERSE logo" />
@@ -76,7 +76,7 @@ const Info = () => {
         <h2>Ready to work at the forefront of <br></br>innovation?</h2>
         <p>Powering the world’s best creative teams. From<br></br> next-gen startups to established enterprises.</p>
         <div className="input-container">
-          <input type="email" ref={emailInputRef} placeholder="Enter email address" />
+          <input type="email" className="input-box" ref={emailInputRef} placeholder="Enter email address" />
           <button className='btn' onClick={() => {
               navigate(`/contact?email=${emailInputRef.current.value}`);
           }}>Learn More</button>
