@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from 'react-router-dom';
 
 const slideStyles = {
@@ -76,6 +76,13 @@ const ImageSlider = ({ slides }) => {
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
   };
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      goToNext();
+    }, 3500);
+  
+    return () => clearInterval(slideInterval);
+  }, [goToNext]);
   const slideStylesWidthBackground = {
     ...slideStyles,
     backgroundImage: `url(${slides[currentIndex].url})`,
