@@ -37,79 +37,22 @@ const NewsUpdates = () => {
             <div className='Updates-heading'>
                 <h1>UPDATES</h1>
             </div>
+            <div className='Updates-container'>
+                <div className='update-one update-container-box'>
+                    <a href='https://www.linkedin.com/posts/activity-7205365734921678848-GaIk?utm_source=share&utm_medium=member_desktop' target='_blank' rel="noopener noreferrer">
+                    <p>Imagination in Action summit at MIT CSAIL. Click here to read more.</p>
+                    <p>June 7, 2024</p>
+                    </a>
+                </div>
+                <div className='update-two update-container-box'>
+                    <a href='https://www.linkedin.com/posts/massinnovationnetwork_eddies-activity-7119683321789337601-JWWk?utm_source=share&utm_medium=member_desktop' target='_blank' rel='noopener noreferrer'>
+                    <p>GiwoTech at Massachusetts Innovation Network #Eddies. Click here to read more.</p>
+                    <p>November 8, 2024</p>
+                    </a>
+                </div>
+            </div>
           </div>
         </div>
       );
 };
 export default NewsUpdates;
-
-
-//   const handleOnClickNews = (id) => {
-//     switch (id) {
-//       case 1:
-//         window.open("https://www.nytimes.com/spotlight/well-diabetes", "_blank");
-//         break;
-//       case 2:
-//         window.open("https://www.medicalnewstoday.com/diabetes", "_blank");
-//         break;
-//       case 3:
-//         window.open("https://www.bbc.com/news/topics/cx250pynpv4t", "_blank");
-//         break;
-//       default:
-//         break;
-//     }
-//   };
-
-//   return (
-//           <div className="NewsUpdates-main">
-//             <div className="heading">Latest News and more</div>
-//             <div className="custom-slides">
-//               <Carousel data-bs-theme="dark">
-//                 <Carousel.Item>
-//                   <img
-//                     src="src\assets\BARDA-NEWS.png"
-//                     className="d-block w-100"
-//                     alt="..."
-//                     onClick={() => handleOnClickNews(1)}
-//                   />
-//                   <Carousel.Caption>
-//                     <h5>The New York Times</h5>
-//                     <p>Latest news for Diabetes on The New York Times.</p>
-//                   </Carousel.Caption>
-//                 </Carousel.Item>
-//                 <Carousel.Item>
-//                   <img
-//                     src="src\assets\BUSSINESSWIRE_NEWS.png"
-//                     className="d-block w-100"
-//                     alt="..."
-//                     onClick={() => handleOnClickNews(2)}
-//                   />
-//                   <Carousel.Caption>
-//                     <h5>Medical News Today</h5>
-//                     <p>Latest news for Diabetes on Medical News Today.</p>
-//                   </Carousel.Caption>
-//                 </Carousel.Item>
-//                 <Carousel.Item>
-//                   <img
-//                     src="src\assets\COMINGSOON-NEWS.png"
-//                     className="d-block w-100"
-//                     alt="..."
-//                     onClick={() => handleOnClickNews(3)}
-//                   />
-//                   <Carousel.Caption>
-//                     <h5>BBC News</h5>
-//                     <p>Latest news for Diabetes on BBC News.</p>
-//                   </Carousel.Caption>
-//                 </Carousel.Item>
-//               </Carousel>
-//             </div>
-//       </div>
-//   );
-// };
-
-// export default NewsUpdates;
-
-// // export default NewsUpdates
-
-
-// {/*  */}

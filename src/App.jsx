@@ -11,7 +11,6 @@ import NewsPage from './Components/NewsPage'
 const App = () => {
   return (
     <>
-    
       <BrowserRouter> 
      
       <Routes>

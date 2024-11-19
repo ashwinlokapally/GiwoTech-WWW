@@ -4,7 +4,7 @@ const Science = () => {
   return (
     <div className='science'>
         <div className='science-heading'>
-            <h1>Our Science</h1>
+            <h1>OUR SCIENCE</h1>
             <p>A digital twin platform from first principles using physics-based atomic-level <br/>molecular dynamics and proprietary AI. ‍We target viral proteins to develop first-in-class<br/> small molecules and vaccines.</p>
         </div>
         <div className='science-body'> 

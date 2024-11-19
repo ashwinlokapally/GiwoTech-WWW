@@ -7,7 +7,6 @@
   
   .footer-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -15,12 +14,13 @@
   
   .footer p {
     color: #0A0A0A;
-    margin: 0;
+    margin-right: 200px;
   }
   
   .social-links {
     display: flex;
     gap: 10px;
+    margin-right: 299px;
   }
   
   .icon {

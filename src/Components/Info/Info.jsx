@@ -26,7 +26,7 @@ const Info = () => {
         <div className="shapes">
           <img src="src\assets\The_Science_behind_it_V.svg" alt="" />
         </div>
-        <div className="content blurred-background">
+        <div className="content">
           <h2>
             The <span className="highlight">Science</span> behind it
           </h2>
