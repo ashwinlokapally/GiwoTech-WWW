@@ -1,6 +1,6 @@
 .hero-flexbox{
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
     background-color: #0A0A0A;
     display: flex;
     align-items: center;

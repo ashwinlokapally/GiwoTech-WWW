@@ -9,6 +9,9 @@ const Info = () => {
   const navigate = useNavigate();
   const emailInputRef = useRef();
 
+  const handleClick = () => {
+    navigate('/science');
+  };
 
   return (
     <div className='support'>
@@ -32,7 +35,7 @@ const Info = () => {
             Atomic level dynamic simulations of protein structural interactome provides unconventional grasp on bio-molecular systems.
           </p>
           <br></br>
-          <button className="btn">Learn More</button>
+          <button className="btn" onClick={handleClick}>Learn More</button>
         </div>
     
       </div>
@@ -44,7 +47,7 @@ const Info = () => {
           </h2>
           <p>Simulating Self-assembly of Biomolecular Systems</p>
           <br></br>
-          <button className="btn">Explore</button>
+          <button className="btn" onClick={handleClick}>Explore</button>
         </div>
 
         <div className="shapes">
@@ -58,17 +61,15 @@ const Info = () => {
       </div>
       <div className="logo-slider">
       <div className="logo-slide-track">
-        <a href='https://vms.mit.edu/'><img className="logo-slide" src='src/assets/MIT.svg' alt="MIT logo" /></a>
-        <a href='https://www.nersc.gov/'><img className="logo-slide" src='src/assets/NERSE.svg' alt="NERSE logo" /></a>
-        <a href='https://icorps.mit.edu/'><img className="logo-slide" src='src/assets/NEI_Crops.svg' alt="NEI Crops logo" /></a>
-        <a href='https://vmn.sites.northeastern.edu/'><img className="logo-slide" src='src/assets/Venture_Monitoring_Networks.svg' alt="Venture Monitoring Networks logo" /></a>
-        <a href='https://engine.xyz/'><img className="logo-slide" src='src/assets/The_Engine.svg' alt="The Engine logo" /></a>
+        <a href='https://vms.mit.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src='src/assets/MIT.svg' alt="MIT logo" /></a>
+        <a href='https://www.nersc.gov/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src='src/assets/NERSE.svg' alt="NERSE logo" /></a>
+        <a href='https://icorps.mit.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src='src/assets/NEI_Crops.svg' alt="NEI Crops logo" /></a>
+        <a href='https://vmn.sites.northeastern.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src='src/assets/Venture_Monitoring_Networks.svg' alt="Venture Monitoring Networks logo" /></a>
         
         <img className="logo-slide" src='src/assets/MIT.svg' alt="MIT logo" />
         <img className="logo-slide" src='src/assets/NERSE.svg' alt="NERSE logo" />
         <img className="logo-slide" src='src/assets/NEI_Crops.svg' alt="NEI Crops logo" />
         <img className="logo-slide" src='src/assets/Venture_Monitoring_Networks.svg' alt="Venture Monitoring Networks logo" />
-        <img className="logo-slide" src='src/assets/The_Engine.svg' alt="The Engine logo" />
       </div>
     </div>
     <div className="final-section">

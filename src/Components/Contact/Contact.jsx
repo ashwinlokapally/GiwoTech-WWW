@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import './Contact.css'
 import { FaCopy } from "react-icons/fa";
 import { useSearchParams } from 'react-router-dom';
-
+// ac7df920-d405-443e-a31d-e9d988b3a290 giwotech access_key
 const Contact = () => {
     const [result, setResult] = React.useState("");
 
@@ -11,7 +11,7 @@ const Contact = () => {
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "ac7df920-d405-443e-a31d-e9d988b3a290");
+    formData.append("access_key", "d4efa107-0866-4faf-8b4f-f8c4a2363102");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -67,16 +67,17 @@ const Contact = () => {
                     <input type='text' name='subject' placeholder='Subject'/>
                     <label></label>
                     <textarea name='message'rows='4' placeholder='Message' required></textarea>
-                    <button type='submit' className='contact-btn'>Send Message</button>
-                </form>
-                
-                <div className='contact-email-copy'>
                     
-                    <p>info@giwotech.com</p>
-                    <button type='button'><FaCopy/></button>
+                    <div className='contact-email-copy'>
+                    <button type='submit' className='contact-btn'>Send Message</button>
+                    <div className='contact-form-submit-line'>
+                      <p>info@giwotech.com</p>
+                      <button type='button' onClick={() => navigator.clipboard.writeText("info@giwotech.com")}><FaCopy/></button>
+                    </div>
+                    
                 </div>
+                </form>              
                 
-
             </div>
         </div>
 

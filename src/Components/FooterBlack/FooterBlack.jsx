@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="footer-black">
       <div className="footer-content-black">
-        <p>© Copyright 2024, All Rights Reserved by Giwotech</p>
+        <p className='footer-black-copyright'>© Copyright 2024, All Rights Reserved by Giwotech</p>
         <div className="social-links-black">
           <a href='https://x.com/GiwoTech' className="icon-black"><BsTwitterX/></a> 
           <a href='https://www.linkedin.com/company/giwotech/' className="icon-black"><BsLinkedin/></a> 

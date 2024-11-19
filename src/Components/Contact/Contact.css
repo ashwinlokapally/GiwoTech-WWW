@@ -29,22 +29,6 @@
     margin-bottom: 15px;
 }
 
-
-/* .map{
-    flex-basis: 50%;
-}
-.contact form input, .contact form textarea{
-    display: block;
-    width: 100%;
-    background: #E1EFFF;
-    padding: 15px;
-    border: 0;
-    outline: 0;
-    margin-top: 5px;
-    margin-bottom: 15p;
-    resize: none;
-} */
-
 .contact {
     display: flex;
     max-width: 1000px;
@@ -65,7 +49,9 @@
 }
 .map-description{
     display: flex;
+    margin-top: 10px;
 }
+
 .map-description button {
     width: 44px;
     border-radius: 8px;
@@ -79,28 +65,37 @@
 }
 ::placeholder {
     color: #E1EFFF;
-    opacity: 1; /* Firefox */
+    opacity: 1; 
   }
 .contact-form p{
     color: #E1EFFF;
 }
 .contact-email-copy{
     display: flex;
-    
 }
 .contact-email-copy button{
     height: 24px;
     width: 24px;
+    cursor: pointer;
+}
+.contact-form-submit-line{
+    display: flex;
+    align-items: center;
+    padding-left: 110px;
+}
+.contact-form-submit-line button{
+    margin-left: 4px;
+    border-radius: 4px;
 }
 .contact-form input, 
 .contact-form textarea {
     width: 100%;
-    padding: 15px;
+    padding: 20px;
     background: #0a0a0a;
     color: #E1EFFF;
     border: 1px solid #E1EFFF;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 22px;
 }
 
 .contact-form .contact-btn {
@@ -137,19 +132,19 @@
 
 @media (max-width: 950px) {
     .contact {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center;   /* Center align the items */
-        gap: 20px;             /* Add some spacing between sections */
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
 
     .map, .contact-form {
-        flex-basis: 100%;       /* Make each section take full width */
-        max-width: 80%;        /* Ensure they expand to full width */
-        margin-bottom: 20px;   /* Add spacing between map and form */
-        width: 100%;           /* Ensure full width for each element */
+        flex-basis: 100%;
+        max-width: 80%;
+        margin-bottom: 20px;
+        width: 100%;
     }
 
     .map iframe {
-        width: 100%;           /* Ensure iframe takes full width */
+        width: 100%;
     }
 }

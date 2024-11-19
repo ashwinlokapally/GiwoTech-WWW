@@ -1,8 +1,68 @@
-.carousel-container {
-    margin-top: 50px;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.News-main{
+    background-color: #0A0A0A;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.slick-slide img {
-    width: 100%;
-    height: auto;
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  align-items: start;
+}
+.card {
+  width: 360px;
+  min-height: 400px;
+  box-shadow: 3px 3px 3px #373e44;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: #E1EFFF;
+}
+.card:hover {
+  box-shadow: 3px 3px 5px #434c53;
+  background-color: #0c2a3f;
+  transform: translateY(-2px);
+}
+.card-header {
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  font-weight: bold;
+  object-fit: cover;
+}
+.card-content {
+  padding: 20px;
+}
+.news-source {
+  margin-block: 12px;
+}
+.news-title {
+  font-weight: 600;
+  color: #0A0A0A;
+}
+.news-desc {
+  color: #0A0A0A;
+}
+
+.custom-divider {
+  border-top: #4E5B73 solid 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.News-heading {
+  margin: 0px 0px 50px 0px;
+  font-size: 50px;
+  text-align: center;
+  font-weight: 800;
 }

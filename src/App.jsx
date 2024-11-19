@@ -4,6 +4,7 @@ import HomePage from './Components/HomePage'
 import SciencePage from './Components/SciencePage'
 import ContactPage from './Components/ContactPage'
 import PipelinePage from './Components/PipelinePage'
+import NewsUpdatesPage from './Components/NewsUpdatesPage'
 import TeamPage from './Components/TeamPage'
 import NewsPage from './Components/NewsPage'
 
@@ -21,6 +22,9 @@ const App = () => {
       </Routes>
       <Routes>
         <Route path='/pipeline' element={<PipelinePage/>}/>
+      </Routes>
+      <Routes>
+        <Route path='/news-updates' element={<NewsUpdatesPage/>}/>
       </Routes>
       <Routes>
         <Route path='/news' element={<NewsPage/>}/>

@@ -33,14 +33,14 @@ body {
   .blurred-background {
     width: 100%;
     height: 300px;
-    background-image: url('src\assets\White_field_area.svg'); /* Add your background image */
+    background-image: url('src\assets\White_field_area.svg');
     background-size: cover;
     position: relative;
     z-index: 1;
 }
 
 .content {
-    position: relative; /* Ensure content stays on top */
+    position: relative;
     z-index: 2;
     padding: 20px;
     color: white;
@@ -54,9 +54,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(10px); /* Adjust the blur intensity */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    background-color: rgba(255, 255, 255, 0.3); /* Optional semi-transparent layer for better visibility */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.3);
 }
   
   .science-section h2 {
@@ -138,7 +138,11 @@ body {
     border-radius: 25px;
 }
 .support{
-    /* background-image: url('src\assets\White_field_area.svg'); */
+    /* background-image: url('src\assets\White_field_area.svg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    margin-top: 30px;
     background-color: #E1EFFF;
 }
 .Supported-section{
@@ -150,10 +154,14 @@ body {
   padding-bottom: 55px;
   padding-top: 55px;
 }
-/* -------------------------------------- */
+
+.Supported-section p{
+  font-weight: 600;
+  font-size: larger;
+}
 
 .logo-slider {
-  background: black;
+  background: #0A0A0A;
   height: 100px;
   margin: auto;
   overflow: hidden;
@@ -188,8 +196,6 @@ body {
 .logo-slider:hover .logo-slide-track {
   animation-play-state: paused;
 }
-
-/* -------------- */
 
 .final-section{
   background-color: #0A0A0A;
@@ -226,10 +232,10 @@ body {
 }
 ::placeholder {
   color: #4E5B73;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 .input-box::-webkit-input-placeholder {
-  color: #4E5B73; /* Same color for consistency */
+  color: #4E5B73; 
 }
 
 .final-section button {

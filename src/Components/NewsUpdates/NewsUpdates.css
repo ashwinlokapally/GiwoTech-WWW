@@ -1,0 +1,32 @@
+.NewsUpdates-main{
+    background-color: #0A0A0A;
+    color: #E1EFFF;
+    padding-top: 100px;
+    
+}
+.NewsUpdates-heading{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.NewsUpdates-Button{
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.Updates-main{
+    background-color: #0A0A0A;
+    color: #E1EFFF;
+}
+.Updates-heading{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+}
+/* .Updates-main{
+    height: 200px;
+    overflow-y: scroll;
+} */

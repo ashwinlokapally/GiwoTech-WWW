@@ -1,6 +1,6 @@
-nav .container-white{
+.container-white{
     width:100%;
-    background: #0A0A0A;
+    background: #E1EFFF;
     color: #0A0A0A;
     padding: 4px 0;
     position: fixed;
@@ -10,6 +10,8 @@ nav .container-white{
     align-items: center;
     justify-content: space-between;
     z-index: 10;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 .logo-white{
     width: 150px;

@@ -11,7 +11,7 @@ const Team = () => {
       </p>
 
       {/* Founding Team */}
-      <h2>FOUNDING TEAM</h2>
+      <h2 className='team-founding-heading'>FOUNDING TEAM</h2>
       <div className="team-grid founding-team">
       <TeamMember
           name="Ashwin Lokapally"
@@ -30,7 +30,7 @@ const Team = () => {
       </div>
 
       {/* Advisors */}
-      <h2>ADVISORS</h2>
+      <h2 className='team-advisors'>ADVISORS</h2>
       <div className="team-grid">
         <TeamMember
           name="Arthur Hiller"
