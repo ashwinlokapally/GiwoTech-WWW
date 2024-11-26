@@ -1,14 +1,18 @@
 import React from 'react'
 import './Navbar.css'
-import logo from '../../assets/Logo.png'
+import logoOutlineWhite from '../../assets/LogoOutline-white.png'
+import logoTextWhite from '../../assets/LogoText-white.png'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <nav className='container'>
-        <Link to={'/'}><img src={logo} alt='' className='logo'/></Link>
+      <div className='logo-box'>
+        <Link to={'/'}><img src={logoOutlineWhite} alt='' className='logo-outline'/></Link>
+        <Link to={'/'}><img src={logoTextWhite} alt='' className='logo-text'/></Link>
+      </div>
         <ul>
-            <Link to={'/science'} className='link'>Science</Link>
+            <Link to={'/science'} className='link science-link'>Science</Link>
             <Link to={'/pipeline'} className='link'>Pipeline</Link>
             <Link to={'/news-updates'} className='link'>News&Updates</Link>
             <Link to={'/team'} className='link'>Team</Link>

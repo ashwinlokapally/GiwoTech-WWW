@@ -1,10 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link } from 'react-router-dom';
 
 const slideStyles = {
   width: "100%",
   height: "100%",
-  borderRadius: "10px",
+  borderRadius: "44px",
   backgroundSize: "cover",
   backgroundPosition: "center",
 };
@@ -13,8 +12,8 @@ const rightArrowStyles = {
   position: "absolute",
   top: "50%",
   transform: "translate(0, -50%)",
-  right: "-32px",
-  fontSize: "45px",
+  right: "-40px",
+  fontSize: "40px",
   color: "#E1EFFF",
   zIndex: 1,
   cursor: "pointer",
@@ -24,8 +23,8 @@ const leftArrowStyles = {
   position: "absolute",
   top: "50%",
   transform: "translate(0, -50%)",
-  left: "-32px",
-  fontSize: "45px",
+  left: "-40px",
+  fontSize: "40px",
   color: "#E1EFFF",
   zIndex: 1,
   cursor: "pointer",
@@ -63,38 +62,52 @@ const linkStyles = {
 
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
-  const goToNext = () => {
+
+  const goToNext = useCallback(() => {
     const isLastSlide = currentIndex === slides.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-  };
+  }, [currentIndex, slides.length]);
+
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
   };
+
   useEffect(() => {
-    const slideInterval = setInterval(() => {
-      goToNext();
-    }, 3500);
+    let slideInterval;
+    if (!isPaused) {
+      slideInterval = setInterval(() => {
+        goToNext();
+      }, 3500);
+    }
   
     return () => clearInterval(slideInterval);
-  }, [goToNext]);
+  }, [goToNext, isPaused]);
+
   const slideStylesWidthBackground = {
     ...slideStyles,
     backgroundImage: `url(${slides[currentIndex].url})`,
   };
+
   const handleClick = (e) => {
     e.preventDefault();
     const url = slides[currentIndex].link;
     window.open(url, '_blank', 'noopener,noreferrer');
-};
+  };
 
   return (
-    <div style={sliderStyles}>
+    <div 
+      style={sliderStyles}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div>
         <div onClick={goToPrevious} style={leftArrowStyles}>
           ❰
@@ -108,6 +121,7 @@ const ImageSlider = ({ slides }) => {
         target="_blank" 
         rel="noopener noreferrer" 
         style={linkStyles}
+        onClick={handleClick}
       >
         <div style={slideStylesWidthBackground}></div>
       </a>

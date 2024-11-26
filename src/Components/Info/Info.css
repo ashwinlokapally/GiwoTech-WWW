@@ -1,152 +1,166 @@
+.support{
+  background-color: #E1EFFF;
+}
+
+.custom-shape-divider-top-1732571794 {
+  position: relative;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1732571794 svg {
+  position: relative;
+  display: block;
+  width: calc(272% + 1.3px);
+  height: 320px;
+}
+
+.custom-shape-divider-top-1732571794 .shape-fill {
+  fill: #0A0A0A;
+}
 .support-supported{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0;
-    padding-top: 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  top: -170px;
 }
 .highlight{
-    color: #B80C09;
+  color: #B80C09;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
+}
   
-  .science-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px; 
-  }
+.science-section {
+  position: relative;
+  top: -100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5rem 0 5rem;
+  height: 650px;
+}
   
-  .science-section .content {
-    max-width: 60%;
-    background-color: rgba(255, 255, 255, 0.4);
-
-  -webkit-backdrop-filter: blur(5px);
-
-  backdrop-filter: blur(5px);
-    backdrop-filter: blur(2px);
-  }
+.science-section .content {
+  max-width: 60%;
+  background-color: rgb(225, 239, 255, 0.6);
+}
   
 
 .content {
-    position: relative;
-    
-    z-index: 2;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.4);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-    color: white;
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: white;
 }
   
-  .science-section h2 {
-    font-size: 2.5rem;
-    color: #0A0A0A;
-  }
+.science-section .btn {
+  background-color: #4E5B73;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 550;
+  padding: 15px 40px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+}
   
-  .science-section p {
-    font-size: 1.2rem;
-    color: #0A0A0A;
-  }
-  
-  .science-section .btn {
-    background-color: #4E5B73;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .science-section .btn:hover {
-    background-color: #4E5B73;
-  }
-  
-  .next-steps-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px;
-  }
-  
-  .next-steps-section .content {
-    max-width: 80%;
-  }
-  
-  .next-steps-section h2 {
-    font-size: 2.5rem;
-    color: #0A0A0A;
-  }
-  
-  .next-steps-section .highlight {
-    color: #B80C09; 
-  }
-  
-  .next-steps-section p {
-    font-size: 1.2rem;
-    color: #0A0A0A;
-  }
-  
-  .next-steps-section .btn {
-    background-color: #4E5B73;
-    color: #E1EFFF;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .next-steps-section .btn:hover {
-    background-color: #555;
-  }
-  
-  .shapes img {
-      width: auto;
-      height: auto;
-      max-width:100%;
-  }
+.science-section .btn:hover {
+  background-color: #4E5B73;
+}
 
-  .content {
-    box-sizing: border-box;
-    border-radius: 10px;
-    box-shadow: #9AA3BA 0px 4px 12px;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-right: 20px;
-    border: 1px solid #4E5B73; 
-    border-radius: 25px;
+.next-steps-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5rem 5rem 5rem;
+  height: 650px;
 }
-.support{
-    /* background-image: url('src\assets\White_field_area.svg');
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover; */
-    margin-top: 30px;
-    background-color: #E1EFFF;
+
+.next-steps-section .content {
+  max-width: 80%;
+  background-color: rgb(225, 239, 255, 0.5);
 }
+
+.next-steps-section .highlight {
+  color: #B80C09; 
+}
+
+.next-steps-section .btn {
+  background-color: #4E5B73;
+  color: #E1EFFF;
+  font-size: 1.2rem;
+  font-weight: 550;
+  padding: 15px 40px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.next-steps-section .btn:hover {
+  cursor: pointer;
+}
+
+.shapes img {
+    width: 600px;
+    height: 1200px;
+    max-width:100%;
+}
+
+.content {
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: #9AA3BA 0px 6px 18px;
+  padding-left: 30px;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  padding-right: 30px;
+  border: 1px solid #4E5B73; 
+  border-radius: 44px;
+  line-height: 40px;
+}
+.info-content-heading{
+  font-size: 3rem;
+  color: #0A0A0A;
+  padding-bottom: 20px;
+  width: 650px;
+}
+.info-content-description{
+  font-size: 1.4rem;
+  color: #0A0A0A;
+  padding-bottom: 15px;
+}
+
 .Supported-section{
   background-color: #0A0A0A;
   color: #E1EFFF;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 30px;
   padding-bottom: 55px;
   padding-top: 55px;
 }
 
 .Supported-section p{
   font-weight: 600;
-  font-size: larger;
+  font-size: larg;
+  padding-top: 50px;
+  padding-bottom: 30px;
 }
 
 .logo-slider {
   background: #0A0A0A;
-  height: 100px;
+  height: 150px;
   margin: auto;
   overflow: hidden;
   position: relative;
@@ -161,7 +175,7 @@ body {
 }
 
 .logo-slide {
-  height: 100px;
+  height: 150px;
   width: 250px;
   padding: 15px;
   margin-left: 50px;
@@ -187,16 +201,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 30px;
+  padding-top: 15rem;
+  padding-bottom: 40rem;
   height: 50vh;
 }
 
 .final-section-content {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  font-size: larger;
 }
 .final-section-content h2{
-  padding-bottom: 15px;
+  font-size: 42px;
+  padding-top: 28rem;
+  padding-bottom: 30px;
+}
+.final-section-content p{
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 .input-container {
   display: flex;
@@ -206,8 +228,8 @@ body {
   background-color: #E1EFFF;
   padding: 4px 4px 4px 4px;
   border-radius: 12px;
-  width: 80%;
-  margin-left: 35px;
+  width: 60%;
+  margin-left: 125px;
 }
 
 .input-box{
@@ -229,4 +251,3 @@ body {
 .final-section button {
   padding: 10px;
 }
-

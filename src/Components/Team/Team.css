@@ -10,15 +10,26 @@
   padding: 50px;
   background-color: #0A0A0A;
   color: #E1EFFF;
-  padding:17%;
-  margin-top: -200px;
+  padding: 5% 17% 17% 17%;
+}
+.team-heading{
+  font-size: 20px;
+  
+}
+.team-description{
+  font-size: 22.4px;
 }
 
+
 .team-founding-heading{
+  line-height: 63.85px;
+  font-size: 38px;
   padding-bottom: 45px;
 }
 
 .team-advisors{
+  line-height: 63.85px;
+  font-size: 38px;
   padding-top: 45px;
   padding-bottom: 45px;
 }
@@ -36,7 +47,7 @@
 }
 
 .team-section .team-description {
-  font-size: 18px;
+  font-size: 22.4px;
   margin-bottom: 80px;
   
 }
@@ -82,12 +93,14 @@
 
 .team-member .team-default-name {
   font-size: 42px;
+  margin: 0;
 }
 
 .team-member .team-default-title{
   font-size: 24px;
   text-transform: uppercase;
   padding-bottom: 35px;
+  margin: 0;
 }
 
 /* Default content (name, title) */
@@ -151,6 +164,8 @@
 }
 
 .linkedin-icon{
+  position: absolute;
+  bottom: 50px;
   width: 30px;
   margin-top: 20px;
   font-size: 30px;

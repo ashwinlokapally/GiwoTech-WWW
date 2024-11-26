@@ -15,17 +15,17 @@ const Science = () => {
                     SIMULATIONS.
                 </h2>
                 <br></br>
-                <p>
+                <p className='science-descriptions'>
                     Molecular dynamics simulations provide us <br/>information on conformational changes <br/>over time.
                 </p>
             </div>
-            <div className="shapes">
+            <div className="science-shapes">
                 <img src="src\assets\section_one.gif" alt="" />
             </div>
             </div>
 
             <div className='section-two'>
-            <div className="shapes">
+            <div className="science-shapes">
                 <img src="src\assets\section_two.gif" alt="" />
             </div>
             <div className="science-content body-two">
@@ -33,7 +33,7 @@ const Science = () => {
                     ACCELERATED VACCINE<br/> AND THERAPEUTIC<br/> DISCOVERY
                 </h2>
                 <br></br>
-                <p>
+                <p className='science-descriptions'>
                     Our proprietary models can identify <br/>compounds and design vaccines targeted <br/>at unfamiliar regions with maximum scores                
                 </p>
             </div>
@@ -46,11 +46,11 @@ const Science = () => {
                     ENRICHED SIMULATIONS<br/> THROUGH SOPHISTICATED<br/> MACHINE LEARNING.
                 </h2>
                 <br></br>
-                <p>
+                <p className='science-descriptions'>
                     High predictive power and accuracy of our <br/>  physics-based models through active learning, <br/> deep learning and high performance computing.    
                 </p>
             </div>
-            <div className="shapes">
+            <div className="science-shapes">
                 <img src="src\assets\section_three.gif" alt="" />
             </div>
             </div>

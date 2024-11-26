@@ -34,32 +34,28 @@ const Team = () => {
       <div className="team-grid">
         <TeamMember
           name="Arthur Hiller"
-          title="Business"
           imageUrl="src\assets\ArthurHiller.png"
           bio={"Formerly SVP, \nMillennium Pharma VP,\nMerck & Co. CEO,\ntwo VC-backed startups"}
           linkedinUrl="https://www.linkedin.com/in/arthurhiller/"
         />
         <TeamMember
           name="Azer Khan"
-          title="Business"
           imageUrl="src\assets\AzerKhan.png"
           bio={"Senior Product Manager\nIBM Power Systems"}
           linkedinUrl="https://www.linkedin.com/in/azerkhan/"
         />
         <TeamMember
           name="Michael Hagan"
-          title="Scientific"
           imageUrl="src\assets\MichaelHagan.png"
           bio={"Professor of Physics &\nComputational Biology\nBrandeis University"}
           linkedinUrl="https://www.linkedin.com/in/michael-hagan-a507056/"
         />
         <TeamMember
           name="Jodi Hadden-Perilla"
-          title="Scientific"
           imageUrl="src\assets\JodiHadden.png"
           bio={"Professor of Chemistry &\nBiochemistry\nUniversity of Delaware"}
           linkedinUrl="https://www.linkedin.com/in/jodi-hadden-perilla-63445416a/"
-        />
+        />        
       </div>
     </div>
   );
@@ -74,12 +70,10 @@ function TeamMember({ name, title, imageUrl,bio, linkedinUrl }) {
         <img src={imageUrl} alt={name} className="team-image" />
       </div>
       
-      {/* Detailed Content (hidden by default) */}
       <div className="detailed-content">
         <h3 className='team-detailed-name'>{name}</h3>
         <p className='team-detailed-title'>{title}</p>
         <p className='team-detailed-bio'>{bio}</p>
-        {/* LinkedIn Icon */}
         <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="linkedin-icon">
           <BsLinkedin/>
         </a>

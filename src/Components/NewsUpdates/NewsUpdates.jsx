@@ -20,13 +20,13 @@ const NewsUpdates = () => {
         { url: comingsoonNews, title: "COMING SOON", link: "" },
       ];
       const containerStyles = {
-        width: "1200px",
-        height: "650px",
+        width: "900px",
+        height: "500px",
         margin: "0 auto",
       };
       return (
         <div className='NewsUpdates-main'>
-          <h1 className='NewsUpdates-heading'>NEWS AND UPDATES</h1>
+          <h1 className='NewsUpdates-heading'>NEWS</h1>
           <div style={containerStyles}>
             <ImageSlider slides={slides} />
           </div>

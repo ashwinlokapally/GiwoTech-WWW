@@ -18,12 +18,18 @@
   .science-heading h1 {
     font-size: 2.5em;
     color: #0A0A0A;
+    padding-top: 50px;
     margin-bottom: 10px;
   }
   
   .science-heading p {
-    font-size: 1.2em;
+    display: block;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.4em;
     color: #0A0A0A;
+    padding-top: 10px;
+    padding-bottom: 30px;
   }
   
   .science-body {
@@ -49,8 +55,8 @@
     text-align: left;
   }
   .body-two{
-    text-align: right;
-    padding-left: 25px;
+    text-align: left;
+    padding-left: 45px;
   }
   .body-three{
     text-align: left;
@@ -61,17 +67,28 @@
   }
   
   .science-content p {
-    font-size: 1.2em;
+    font-size: 1.4em;
     color: #0A0A0A;
   }
+  .science-descriptions{
+    line-height: 32px;
+    font-weight: 400;
+    margin: 0;
+  }
   
-  .shapes {
+  .science-shapes {
     flex-basis: 60%;
     border-radius: 44px;
     /* border: 3px solid #4E5B73; */
   }
+  /* .science-shapes{
+    box-shadow: #9AA3BA 0px 6px 18px;
+    border: 1px solid #9AA3BA;
+  } */
   
-  .shapes img {
+  .science-shapes img {
+    box-shadow: #9AA3BA 0px 8px 18px;
+    border: 2px solid #6d727e;
     width: 100%;
     height: auto;
     border-radius: 44px;
@@ -88,11 +105,11 @@
           text-align: center;
       }
   
-      .content, .shapes {
+      .content, .science-shapes {
           flex-basis: auto;
       }
   
-      .shapes img {
+      .science-shapes img {
           margin-top: 20px;
       }
   }

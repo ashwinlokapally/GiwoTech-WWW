@@ -1,11 +1,11 @@
 .hero-flexbox{
     width: 100%;
-    min-height: 90vh;
+    min-height: 75vh;
     background-color: #0A0A0A;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 15px;
+    padding-top: 60px;
 }
 .hero{
     background-color: #0A0A0A;
@@ -14,7 +14,51 @@
     text-align: left;
     max-width: 800px;
     color: #E1EFFF;
+    font-size: 20px;
 }
+.hero-btn{
+    background: #4E5B73;
+    color: #E1EFFF;
+    font-weight: 1000;
+    font-size: 18px;
+    padding: 16px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+  }
 .hero-media{
     display: block;
+}
+.hero-supported{
+    position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0;
+      padding-top: 25px;
+      color: #E1EFFF;
+      background-color: #0A0A0A;
+      padding-top: 45px;
+  }
+
+  .custom-shape-divider-bottom-1732573544 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1732573544 svg {
+    position: relative;
+    display: block;
+    width: calc(276% + 1.3px);
+    height: 300px;
+}
+
+.custom-shape-divider-bottom-1732573544 .shape-fill {
+    fill: #E1EFFF;
 }
