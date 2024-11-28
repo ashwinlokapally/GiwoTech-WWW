@@ -44,7 +44,7 @@ const Info = () => {
           </h2>
           
           <p className='info-content-description'>
-            Atomic level dynamic simulations of protein structural <br></br>interactome provides unconventional grasp on <br></br>bio-molecular systems.
+            Atomic level dynamic simulations of protein structural <br></br>interactome provides unconventional grasp on <br></br>biomolecular systems.
           </p>
           
           <button className="btn info-btn" onClick={handleClick}>Learn More</button>
@@ -56,7 +56,7 @@ const Info = () => {
           <h2 className='info-content-heading'>
           Our next <span className="highlight">steps</span> ahead
           </h2>
-          <p className='info-content-description'>Simulating <br></br>Self-assembly of Biomolecular Systems</p>
+          <p className='info-content-description'>Simulating self-assembly of <br></br> biomolecular systems</p>
           <button className="btn info-btn" onClick={handleClick}>Explore</button>
         </div>
 
@@ -65,7 +65,7 @@ const Info = () => {
         </div>
       </div>
 
-      <div className='Supported-section'>
+      {/* <div className='Supported-section'>
         <p>Supported by</p>
         <br></br>
       </div>
@@ -87,7 +87,7 @@ const Info = () => {
         <a href='https://vmn.sites.northeastern.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={venture} alt="Venture Monitoring Networks logo" /></a>
       
       </div>
-    </div>
+    </div> */}
     <div className="final-section">
       <div className="final-section-content">
         <h2>Ready to work at the forefront of <br></br>innovation?</h2>

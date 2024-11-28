@@ -8,8 +8,8 @@
   text-align: center;
   grid-template-columns: repeat(2, 1fr);
   padding: 50px;
-  background-color: #0A0A0A;
-  color: #E1EFFF;
+  background-color: #E1EFFF;
+  color: #0A0A0A;
   padding: 5% 17% 17% 17%;
 }
 .team-heading{
@@ -70,7 +70,7 @@
   grid-column-start: 1;
   grid-column-end: 3;
   justify-self: center;
-  width: 464px;
+  width: 424px;
 }
 @media (max-width: 768px) {
   .team-grid-advisors {
@@ -84,8 +84,8 @@
 }
 
 .team-member {
-  background-color: #E1EFFF;
-  color: #0A0A0A;
+  background-color: #0A0A0A;
+  color: #E1EFFF;
   border: 0 solid #e5e7eb;
   box-sizing: border-box;
   border-radius: 55px;
@@ -95,7 +95,7 @@
   align-items: center;
   gap: 60px;
   height: 520px;
-  width: 464px; 
+  width: 424px; 
   position: relative;
   flex-direction: column;
   overflow: hidden;

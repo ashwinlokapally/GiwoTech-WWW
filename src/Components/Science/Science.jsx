@@ -1,5 +1,9 @@
 import React from 'react'
 import './Science.css'
+import scienceOne from '../../assets/section_one.gif'
+import scienceTwo from '../../assets/section_two.gif'
+import scienceThree from '../../assets/section_three.gif'
+
 const Science = () => {
   return (
     <div className='science'>
@@ -20,13 +24,13 @@ const Science = () => {
                 </p>
             </div>
             <div className="science-shapes">
-                <img src="src\assets\section_one.gif" alt="" />
+                <img src={scienceOne} alt="" />
             </div>
             </div>
 
             <div className='section-two'>
             <div className="science-shapes">
-                <img src="src\assets\section_two.gif" alt="" />
+                <img src={scienceTwo} alt="" />
             </div>
             <div className="science-content body-two">
                 <h2>
@@ -51,7 +55,7 @@ const Science = () => {
                 </p>
             </div>
             <div className="science-shapes">
-                <img src="src\assets\section_three.gif" alt="" />
+                <img src={scienceThree} alt="" />
             </div>
             </div>
         </div>

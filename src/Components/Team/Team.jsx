@@ -23,14 +23,14 @@ const Team = () => {
       <FoundingMember
           name="Ashwin Lokapally"
           title="CEO & Co-Founder"
-          imageUrl="src\assets\AshwinLokapally.png"
+          imageUrl={ashwin}
           bio={"PhD in molecular biology \nwith 10+ years of experience in gene and protein functions."}
           linkedinUrl="https://www.linkedin.com/in/ashwinlokapally/"
         />
         <FoundingMember
           name="Razvan Marinescu"
           title="CTO & Co-Founder"
-          imageUrl="src\assets\RazvanMarinescu.png"
+          imageUrl={razvan}
           bio={"Professor at UC Santa Cruz \nPhD in computer science with 10+ years of experience \nin AI/ML."}
           linkedinUrl="https://www.linkedin.com/in/razvan-valentin-marinescu-29b09442/"
         />
@@ -41,32 +41,32 @@ const Team = () => {
       <div className="team-grid-advisors">
         <TeamMember
           name="Arthur Hiller"
-          imageUrl="src\assets\ArthurHiller.png"
+          imageUrl={arthur}
           bio={"Formerly SVP, \nMillennium Pharma VP,\nMerck & Co. CEO,\ntwo VC-backed startups"}
           linkedinUrl="https://www.linkedin.com/in/arthurhiller/"
         />
         <TeamMember
           name="Azer Khan"
-          imageUrl="src\assets\AzerKhan.png"
+          imageUrl={azer}
           bio={"Senior Product Manager\nIBM Power Systems"}
           linkedinUrl="https://www.linkedin.com/in/azerkhan/"
         />
         <TeamMember
           name="Michael Hagan"
-          imageUrl="src\assets\MichaelHagan.png"
+          imageUrl={michael}
           bio={"Professor of Physics &\nComputational Biology\nBrandeis University"}
           linkedinUrl="https://www.linkedin.com/in/michael-hagan-a507056/"
         />
         <TeamMember
           name="Jodi Hadden Perilla"
-          imageUrl="src\assets\JodiHadden.png"
+          imageUrl={jodi}
           bio={"Professor of Chemistry &\nBiochemistry\nUniversity of Delaware"}
           linkedinUrl="https://www.linkedin.com/in/jodi-hadden-perilla-63445416a/"
         />    
         <TeamMember
           name="Petros Kotidis"
           imageUrl={petro}
-          bio={"Fellow and commercialization Advisor,\n Noble Reach Foundation\n Formerly CEO of Block Engineering\n Advisor at In-Q-Tel \nand VP at Axsun Technologies."}
+          bio={"Fellow and commercialization advisor, Noble Reach Foundation\n Formerly CEO of Block Engineering,\n advisor at In-Q-Tel "}
           linkedinUrl="https://www.linkedin.com/in/petros-kotidis-322506/"
         />    
       </div>

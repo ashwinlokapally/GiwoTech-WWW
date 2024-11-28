@@ -125,7 +125,7 @@ body {
   font-size: 3rem;
   color: #0A0A0A;
   padding-bottom: 20px;
-  width: 650px;
+  width: 550px;
 }
 .info-content-description{
   font-size: 1.4rem;
@@ -188,8 +188,8 @@ body {
 }
 
 .final-section{
-  background-color: #0A0A0A;
-  color: #E1EFFF;
+  background-color: #E1EFFF;
+  color: #0A0A0A;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -217,7 +217,7 @@ body {
   justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 4rem;
-  border: 1px solid #E1EFFF;
+  border: 1px solid #0A0A0A;
   background-color: #E1EFFF;
   padding: 4px 4px 4px 4px;
   border-radius: 12px;
