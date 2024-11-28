@@ -24,7 +24,7 @@ const News = () => {
             <h3 class="news-title">BARDA DRIVe</h3>
             <div class="custom-divider"></div>
             <p class="news-desc" id="news-desc">
-            GiwoTech's cutting-edge AI models for accelerating precision therapeutics discovery through viral modeling caught the attention of BARDA (Biomedical Advanced Research and Development Authority).<br></br> Our innovative approach to model viruses aligns perfectly with BARDA's mission to enhance health security preparedness and response. This recognition from BARDA validates our commitment to leveraging AI for groundbreaking advancements in medical countermeasure development.
+            GiwoTech's cutting-edge AI models for accelerating precision therapeutics discovery through viral modeling caught the attention of BARDA (Biomedical Advanced Research and Development Authority).<br></br><br></br> Our innovative approach to model viruses aligns perfectly with BARDA's mission to enhance health security preparedness and response. This recognition from BARDA validates our commitment to leveraging AI for groundbreaking advancements in medical countermeasure development.
             </p>
           </div>
         </a>
@@ -46,11 +46,61 @@ const News = () => {
             <h3 class="news-title">Massachusetts Innovation Network</h3>
             <div class="custom-divider"></div>
             <p class="news-desc" id="news-desc">
-            Massachusetts Innovation Network has announced the finalists for its signature innovation competition, The Eddies. Finalists will have the chance to participate in this 5-month, no-cost, no-equity innovation-boosting program that includes high-touch, tailor-made mentoring, connections to funding resources, and visibility opportunities. <br></br>
+            Massachusetts Innovation Network has announced the finalists for its signature innovation competition, The Eddies. <br></br><br></br>Finalists will have the chance to participate in this 5-month, no-cost, no-equity innovation-boosting program that includes high-touch, tailor-made mentoring, connections to funding resources, and visibility opportunities. <br></br>
             </p>
           </div>
         </a>
 
+        <a 
+          href=""
+          target="_blank"
+          rel="noopener noreferrer"
+          className="card"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          <div
+            class="card-header"
+            width="40px"
+            height="50px"
+            id="news-img"
+          ></div>
+          <div class="card-content">
+            <h3 class="news-title">
+              Lorem
+            </h3>
+            <div class="custom-divider"></div>
+            <p class="news-desc" id="news-desc">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem magnam assumenda quas id, 
+              illum voluptates ad, repellat cupiditate asperiores adipisci totam libero molestiae obcaecati ut. 
+              Quas asperiores ullam necessitatibus animi.
+            </p>
+          </div>
+        </a>
+        <a 
+          href=""
+          target="_blank"
+          rel="noopener noreferrer"
+          className="card"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          <div
+            class="card-header"
+            width="40px"
+            height="50px"
+            id="news-img"
+          ></div>
+          <div class="card-content">
+            <h3 class="news-title">
+              Lorem
+            </h3>
+            <div class="custom-divider"></div>
+            <p class="news-desc" id="news-desc">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem magnam assumenda quas id, 
+              illum voluptates ad, repellat cupiditate asperiores adipisci totam libero molestiae obcaecati ut. 
+              Quas asperiores ullam necessitatibus animi.
+            </p>
+          </div>
+        </a>
         <a 
           href=""
           target="_blank"

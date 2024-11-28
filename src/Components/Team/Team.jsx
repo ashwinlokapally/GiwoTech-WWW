@@ -1,6 +1,13 @@
 import React from 'react'
 import './Team.css'
 import { BsLinkedin } from 'react-icons/bs'
+import ashwin from '../../assets/AshwinLokapally.png'
+import razvan from '../../assets/RazvanMarinescu.png'
+import arthur from '../../assets/ArthurHiller.png'
+import azer from '../../assets/AzerKhan.png'
+import michael from '../../assets/MichaelHagan.png'
+import jodi from '../../assets/JodiHadden.png'
+import petro from '../../assets/PetrosKotidis.png'
 
 const Team = () => {
   return (
@@ -13,14 +20,14 @@ const Team = () => {
       {/* Founding Team */}
       <h2 className='team-founding-heading'>FOUNDING TEAM</h2>
       <div className="team-grid founding-team">
-      <TeamMember
+      <FoundingMember
           name="Ashwin Lokapally"
           title="CEO & Co-Founder"
           imageUrl="src\assets\AshwinLokapally.png"
           bio={"PhD in molecular biology \nwith 10+ years of experience in gene and protein functions."}
           linkedinUrl="https://www.linkedin.com/in/ashwinlokapally/"
         />
-        <TeamMember
+        <FoundingMember
           name="Razvan Marinescu"
           title="CTO & Co-Founder"
           imageUrl="src\assets\RazvanMarinescu.png"
@@ -31,7 +38,7 @@ const Team = () => {
 
       {/* Advisors */}
       <h2 className='team-advisors'>ADVISORS</h2>
-      <div className="team-grid">
+      <div className="team-grid-advisors">
         <TeamMember
           name="Arthur Hiller"
           imageUrl="src\assets\ArthurHiller.png"
@@ -51,11 +58,38 @@ const Team = () => {
           linkedinUrl="https://www.linkedin.com/in/michael-hagan-a507056/"
         />
         <TeamMember
-          name="Jodi Hadden-Perilla"
+          name="Jodi Hadden Perilla"
           imageUrl="src\assets\JodiHadden.png"
           bio={"Professor of Chemistry &\nBiochemistry\nUniversity of Delaware"}
           linkedinUrl="https://www.linkedin.com/in/jodi-hadden-perilla-63445416a/"
-        />        
+        />    
+        <TeamMember
+          name="Petros Kotidis"
+          imageUrl={petro}
+          bio={"Fellow and commercialization Advisor,\n Noble Reach Foundation\n Formerly CEO of Block Engineering\n Advisor at In-Q-Tel \nand VP at Axsun Technologies."}
+          linkedinUrl="https://www.linkedin.com/in/petros-kotidis-322506/"
+        />    
+      </div>
+    </div>
+  );
+}
+
+function FoundingMember({ name, title, imageUrl,bio, linkedinUrl }) {
+  return (
+    <div className="team-member">
+      <div className='default-content'>
+        <p className='team-default-name'>{name}</p>
+        <p className='team-default-title'><b>{title}</b></p>
+        <img src={imageUrl} alt={name} className="founder-image" />
+      </div>
+      
+      <div className="detailed-content">
+        <h3 className='team-detailed-name'>{name}</h3>
+        <p className='team-detailed-title'>{title}</p>
+        <p className='team-detailed-bio'>{bio}</p>
+        <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="linkedin-icon">
+          <BsLinkedin/>
+        </a>
       </div>
     </div>
   );

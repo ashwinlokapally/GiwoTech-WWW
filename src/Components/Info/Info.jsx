@@ -21,21 +21,21 @@ const Info = () => {
 
   return (
     <div className='support'>
-      <div class="custom-shape-divider-top-1732571794">
+      {/* <div class="custom-shape-divider-top-1732571794">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
         </svg>
-      </div>
+      </div> */}
       
-      <div className='support-supported'>  
+      {/* <div className='support-supported'>  
         Supported by
         <img src={nsf} alt=''></img>
         <img src={nersc} alt=''></img>
-      </div>
+      </div> */}
         <br></br>
         
-      <div className="science-section ">
-        <div className="shapes">
+      <div className="science-section scroll-animate">
+        <div className="shapes scroll-translate-animation">
           <img src={sbi} alt="" />
         </div>
         <div className="content">
@@ -51,7 +51,7 @@ const Info = () => {
         </div>
       </div>
 
-      <div className="next-steps-section">
+      <div className="next-steps-section scroll-animate">
         <div className="content">
           <h2 className='info-content-heading'>
           Our next <span className="highlight">steps</span> ahead
@@ -60,7 +60,7 @@ const Info = () => {
           <button className="btn info-btn" onClick={handleClick}>Explore</button>
         </div>
 
-        <div className="shapes">
+        <div className="shapes scroll-translate-animate">
           <img src={ons} alt="" />
         </div>
       </div>
@@ -80,6 +80,12 @@ const Info = () => {
         <a href='https://www.nersc.gov/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={nerse} alt="NERSE logo" /></a>
         <a href='https://icorps.mit.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={neiCorps} alt="NEI Crops logo" /></a>
         <a href='https://vmn.sites.northeastern.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={venture} alt="Venture Monitoring Networks logo" /></a>
+        
+        <a href='https://vms.mit.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={mit} alt="MIT logo" /></a>
+        <a href='https://www.nersc.gov/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={nerse} alt="NERSE logo" /></a>
+        <a href='https://icorps.mit.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={neiCorps} alt="NEI Crops logo" /></a>
+        <a href='https://vmn.sites.northeastern.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={venture} alt="Venture Monitoring Networks logo" /></a>
+      
       </div>
     </div>
     <div className="final-section">

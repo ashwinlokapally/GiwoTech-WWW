@@ -6,7 +6,8 @@
 
 .News-main{
     background-color: #0A0A0A;
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 40px;
 }
 
 .News-heading{
@@ -19,13 +20,14 @@
 
 .cards-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  row-gap: 20px;
+  gap: 4rem;
   align-items: start;
 }
 .card {
   width: 360px;
+  width: calc((100% - 8rem) / 3);
   min-height: 400px;
   box-shadow: 3px 3px 3px #373e44;
   border-radius: 4px;
@@ -37,6 +39,7 @@
 .card:hover {
   box-shadow: 3px 3px 5px #434c53;
   background-color: #4E5B73;
+  color: #E1EFFF;
   transform: translateY(-2px);
 }
 .card-header {
@@ -58,6 +61,8 @@
 }
 .news-desc {
   color: #0A0A0A;
+  font-size: 18px;
+  line-height: 1.4rem;
 }
 
 .custom-divider {

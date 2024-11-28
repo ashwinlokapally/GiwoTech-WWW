@@ -87,8 +87,9 @@
   } */
   
   .science-shapes img {
+    margin-top: 2px;
     box-shadow: #9AA3BA 0px 8px 18px;
-    border: 2px solid #6d727e;
+    border: 3px solid #cfd4df;
     width: 100%;
     height: auto;
     border-radius: 44px;

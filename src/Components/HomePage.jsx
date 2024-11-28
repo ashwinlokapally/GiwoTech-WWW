@@ -1,12 +1,12 @@
 import Hero from './Hero/Hero'
 import Info from './Info/Info'
 import Footer from './Footer/Footer'
-import Navbar from './Navbar/Navbar'
+import NavbarWHite from './NavbarWhite/NavbarWhite'
 
 const HomePage = () => {
   return (
     <>
-    <Navbar/>
+    <NavbarWHite/>
     <Hero/>
     <Info/>
     <Footer/>

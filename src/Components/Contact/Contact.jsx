@@ -66,7 +66,7 @@ const Contact = () => {
                     <label></label>
                     <input type='text' name='subject' placeholder='Subject'/>
                     <label></label>
-                    <textarea name='message'rows='4' placeholder='Message' required></textarea>
+                    <textarea name='message'rows='6' placeholder='Message' required></textarea>
                     
                     <div className='contact-email-copy'>
                     <button type='submit' className='contact-btn'>Send Message</button>

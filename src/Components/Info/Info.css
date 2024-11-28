@@ -4,7 +4,7 @@
 
 .custom-shape-divider-top-1732571794 {
   position: relative;
-  top: -30px;
+  top: 10px;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -22,14 +22,7 @@
 .custom-shape-divider-top-1732571794 .shape-fill {
   fill: #0A0A0A;
 }
-.support-supported{
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0;
-  top: -170px;
-}
+
 .highlight{
   color: #B80C09;
 }
@@ -68,7 +61,7 @@ body {
   color: #fff;
   font-size: 1.2rem;
   font-weight: 550;
-  padding: 15px 40px;
+  /* padding: 15px 40px; */
   border-radius: 14px;
   border: none;
   cursor: pointer;
@@ -83,7 +76,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 5rem 5rem 5rem;
-  height: 650px;
+  height: 550px;
 }
 
 .next-steps-section .content {
@@ -100,7 +93,7 @@ body {
   color: #E1EFFF;
   font-size: 1.2rem;
   font-weight: 550;
-  padding: 15px 40px;
+  /* padding: 15px 40px; */
   border-radius: 14px;
   border: none;
   cursor: pointer;
@@ -112,7 +105,7 @@ body {
 
 .shapes img {
     width: 600px;
-    height: 1200px;
+    height: 450px;
     max-width:100%;
 }
 
@@ -147,15 +140,14 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  padding-bottom: 55px;
+  padding-bottom: 30px;
   padding-top: 55px;
 }
 
 .Supported-section p{
   font-weight: 600;
   font-size: larg;
-  padding-top: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
 }
 
 .logo-slider {
@@ -175,8 +167,8 @@ body {
 }
 
 .logo-slide {
-  height: 150px;
-  width: 250px;
+  height: 120px;
+  width: 200px;
   padding: 15px;
   margin-left: 50px;
   margin-right: 50px;
@@ -201,8 +193,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 15rem;
-  padding-bottom: 40rem;
+  padding-bottom: 20rem;
   height: 50vh;
 }
 
@@ -212,9 +203,10 @@ body {
   text-align: center;
 }
 .final-section-content h2{
-  font-size: 42px;
+  font-size: 34px;
   padding-top: 28rem;
-  padding-bottom: 30px;
+  padding-bottom: 1rem;
+  font-weight: 600;
 }
 .final-section-content p{
   font-size: 20px;
@@ -224,12 +216,13 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  margin-bottom: 4rem;
   border: 1px solid #E1EFFF;
   background-color: #E1EFFF;
   padding: 4px 4px 4px 4px;
   border-radius: 12px;
   width: 60%;
-  margin-left: 125px;
+  margin-left: 7rem;
 }
 
 .input-box{
@@ -251,3 +244,53 @@ body {
 .final-section button {
   padding: 10px;
 }
+
+@keyframes appear{
+  from {
+    opacity: 0;
+    scale: 0.5;
+    /* transform: translateX(-200px);
+    transform: translateY(-400px); */
+    /* transform: translate(-300px, -300px);*/
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    /* transform: translateX(0px);
+    transform: translateY(0px); */
+    transform: translate(0px, 0px);
+  }
+}
+
+
+@keyframes appears{
+  from {
+    opacity: 0;
+    /* scale: 0.5; */
+    /* transform: translateX(200px); */
+    clip-path: inset( 0 0 100% 100% );
+  }
+  to {
+    opacity: 1;
+    /* scale: 1; */
+    /* transform: translateX(0px); */
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.scroll-animate{
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 40%;
+}
+
+/* .scroll-translate-animation{
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 40%;
+}
+.scroll-translate-animate{
+  animation: appears linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 40%;
+} */
