@@ -22,14 +22,13 @@
     height: '100px';
     font-weight: 600;
     background-color: #E1EFFF;
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 14%;
-    padding-bottom: 14%;
+    padding-left: 13%;
+    padding-right: 13%;
+    padding-top: 11%;
+    padding-bottom: 11%;
     color: #0a0a0a;
-    border: 1px solid #4E5B73;
-    box-shadow: #9AA3BA 0px 4px 14px;
-
+    border: 2px solid #4E5B73;
+    box-shadow: #4f6273 3px 5px 14px;
     border-radius: 44px;
     margin-bottom: 50px;
     margin-top:-25px;

@@ -8,8 +8,8 @@
   text-align: center;
   grid-template-columns: repeat(2, 1fr);
   padding: 50px;
-  background-color: #E1EFFF;
-  color: #0A0A0A;
+  background-color: #0A0A0A;
+  color: #E1EFFF;
   padding: 5% 17% 17% 17%;
 }
 .team-heading{
@@ -56,6 +56,8 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 45px;
+  justify-items: center;
+  justify-content: center;
 }
 
 .team-grid-advisors {
@@ -72,9 +74,22 @@
   justify-self: center;
   width: 424px;
 }
-@media (max-width: 768px) {
+@media (max-width: 926px) {
+  .team-heading{
+    padding-top: 40px;
+  }
+  .team-grid,
   .team-grid-advisors {
     grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .team-grid-advisors > *:last-child:nth-child(2n + 1) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-self: center;
+    width: 424px;
   }
   
   .team-member {
@@ -84,8 +99,8 @@
 }
 
 .team-member {
-  background-color: #0A0A0A;
-  color: #E1EFFF;
+  background-color: #E1EFFF;
+  color: #0A0A0A;
   border: 0 solid #e5e7eb;
   box-sizing: border-box;
   border-radius: 55px;
@@ -136,6 +151,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  text-wrap: pre-wrap;
 }
 
 /* Detailed content (bio, LinkedIn icon) */
@@ -145,7 +161,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   align-items: center;
   width: 100%;
   height: 100%;
@@ -153,7 +169,7 @@
   left: 0;
   text-align: center;
   color: #0A0A0A;
-  padding: 50px;
+  padding: 50px 25px 0px 25px;
   transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
 }
 .detailed-content p {
@@ -165,6 +181,10 @@
   margin: 0;
 }
 
+.team-default-name, .team-detailed-name {
+  white-space: pre-wrap;
+  line-height: 1.2;
+}
 .team-detailed-title {
   font-size: 24px;
   text-transform: uppercase;
@@ -182,14 +202,10 @@
   max-height: 280px;
   display: flex;
   align-items: center;
-  /* Enable text scaling */
   text-size-adjust: auto;
   -webkit-text-size-adjust: auto;
-  /* Prevent text overflow */
   overflow: hidden;
-  /* Ensure text stays within container */
   width: 100%;
-  /* Add smooth transition for font scaling */
   transition: font-size 0.3s ease;
 }
 
@@ -209,10 +225,4 @@
   width: 30px;
   margin-top: 20px;
   font-size: 30px;
-}
-
-@media (max-width: 768px) {
-  .team-member {
-    width: calc(100% - 40px);
-  }
 }

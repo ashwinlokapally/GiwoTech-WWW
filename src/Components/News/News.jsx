@@ -51,7 +51,7 @@ const News = () => {
           </div>
         </a>
 
-        <a 
+        {/* <a 
           href=""
           target="_blank"
           rel="noopener noreferrer"
@@ -75,57 +75,8 @@ const News = () => {
               Quas asperiores ullam necessitatibus animi.
             </p>
           </div>
-        </a>
-        <a 
-          href=""
-          target="_blank"
-          rel="noopener noreferrer"
-          className="card"
-          style={{ textDecoration: 'none', color: 'inherit' }}
-        >
-          <div
-            class="card-header"
-            width="40px"
-            height="50px"
-            id="news-img"
-          ></div>
-          <div class="card-content">
-            <h3 class="news-title">
-              Lorem
-            </h3>
-            <div class="custom-divider"></div>
-            <p class="news-desc" id="news-desc">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem magnam assumenda quas id, 
-              illum voluptates ad, repellat cupiditate asperiores adipisci totam libero molestiae obcaecati ut. 
-              Quas asperiores ullam necessitatibus animi.
-            </p>
-          </div>
-        </a>
-        <a 
-          href=""
-          target="_blank"
-          rel="noopener noreferrer"
-          className="card"
-          style={{ textDecoration: 'none', color: 'inherit' }}
-        >
-          <div
-            class="card-header"
-            width="40px"
-            height="50px"
-            id="news-img"
-          ></div>
-          <div class="card-content">
-            <h3 class="news-title">
-              Lorem
-            </h3>
-            <div class="custom-divider"></div>
-            <p class="news-desc" id="news-desc">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem magnam assumenda quas id, 
-              illum voluptates ad, repellat cupiditate asperiores adipisci totam libero molestiae obcaecati ut. 
-              Quas asperiores ullam necessitatibus animi.
-            </p>
-          </div>
-        </a>
+        </a> */}
+        
       </div>
     </div>
   )

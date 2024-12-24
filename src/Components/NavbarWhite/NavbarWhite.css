@@ -1,8 +1,9 @@
-.container-white{
-    width:100%;
+.container-white {
+    width: 100vw;
+    max-width: 100%;
     background: #E1EFFF;
     color: #0A0A0A;
-    padding: 4px 0;
+    padding: 4px 0px;
     position: fixed;
     top: 0;
     left: 0;
@@ -13,25 +14,94 @@
     padding-left: 5%;
     padding-right: 5%;
 }
-.logo-outline{
+
+.logo-box {
+    display: flex;
+    align-items: center;
+}
+
+.logo-outline {
+    padding-top: 10px;
     width: 20px;
     height: 52px;
+    margin-right: 10px;
 }
-.logo-text{
+
+.logo-text {
     width: 190px;
     height: 60px;
 }
-.container-white ul li{
-    display: inline-block;
-    list-style: none;
-    margin: 5px 20px;
-    font-size: 16px;
-    font-weight: 500;
+
+.nav-links {
+    display: flex;
+    align-items: center;
 }
-.link-white{
+
+.link-black {
     display: inline-block;
     list-style: none;
     margin: 5px 20px;
-    font-weight: 600;
     font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #0A0A0A;
+    text-decoration: none;
+}
+
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+}
+
+.menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #E1EFFF;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #E1EFFF;
+        flex-direction: column;
+        padding: 20px 0;
+        margin: 0;
+        transition: 0.3s;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .link-black {
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        margin: 0;
+    }
+
+    .menu-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
 }

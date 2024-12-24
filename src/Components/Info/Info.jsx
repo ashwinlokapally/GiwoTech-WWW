@@ -8,7 +8,7 @@ import mit from '../../assets/MIT.svg'
 import neiCorps from '../../assets/NEI_Crops.svg'
 import venture from '../../assets/Venture_Monitoring_Networks.svg'
 import nerse from '../../assets/NERSE.svg'
-import bg from '../../assets/White_field_area.svg'
+import heroReverse from '../../assets/hero-video-cropped.mp4'
 import { useNavigate } from 'react-router-dom'
 
 const Info = () => {
@@ -60,8 +60,12 @@ const Info = () => {
           <button className="btn info-btn" onClick={handleClick}>Explore</button>
         </div>
 
-        <div className="shapes scroll-translate-animate">
-          <img src={ons} alt="" />
+        <div className="info-media">
+          {/* <img src={ons} alt="" /> */}
+          <video src={heroReverse}  autoPlay
+        loop
+        muted
+        playsInline></video>
         </div>
       </div>
 

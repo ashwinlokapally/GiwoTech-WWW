@@ -42,18 +42,18 @@ const Contact = () => {
     <div className='contact-main'>
         <div className='contact-head'>
             <h1 className='contact-heading'>Contact Us</h1>
-            <p className='contact-description'>Reach out to our team for support, We'd be more than
-            happy<br></br> to answer your questions!</p>
+            <p className='contact-description'>Reach out to our team for support, We'd be<br></br> more than
+            happy to answer your questions!</p>
         </div>
         
         <div className='contact'>
-            <div className='map'>
+            {/* <div className='map'>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2950.431055685534!2d-71.04104992463738!3d42.31200397119735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e37afe5ca20589%3A0x882bd63cf20dd1c4!2sVenture%20Development%20Center!5e0!3m2!1sen!2sus!4v1730751918159!5m2!1sen!2sus" width="550" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                 <div className='map-description'>
                     <p>Venture Development Center, UMass Boston, W-3, 100 Morrissey Boulevard, Boston, MA 02125</p>
                     <button type='button' onClick={() => navigator.clipboard.writeText("Venture Development Center, UMass Boston, W-3, 100 Morrissey Boulevard, Boston, MA 02125")}><FaCopy/></button>
                 </div>
-            </div>
+            </div> */}
 
             <div className='contact-form'>
                 <form onSubmit={onSubmit}>

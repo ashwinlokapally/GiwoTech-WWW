@@ -58,7 +58,7 @@ const Team = () => {
           linkedinUrl="https://www.linkedin.com/in/michael-hagan-a507056/"
         />
         <TeamMember
-          name="Jodi Hadden Perilla"
+          name={"Jodi\nHadden-Perilla"}
           imageUrl={jodi}
           bio={"Professor of Chemistry &\nBiochemistry\nUniversity of Delaware"}
           linkedinUrl="https://www.linkedin.com/in/jodi-hadden-perilla-63445416a/"
@@ -84,7 +84,7 @@ function FoundingMember({ name, title, imageUrl,bio, linkedinUrl }) {
       </div>
       
       <div className="detailed-content">
-        <h3 className='team-detailed-name'>{name}</h3>
+        <p className='team-detailed-name'>{name}</p>
         <p className='team-detailed-title'>{title}</p>
         <p className='team-detailed-bio'>{bio}</p>
         <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="linkedin-icon">
@@ -105,7 +105,7 @@ function TeamMember({ name, title, imageUrl,bio, linkedinUrl }) {
       </div>
       
       <div className="detailed-content">
-        <h3 className='team-detailed-name'>{name}</h3>
+        <p className='team-detailed-name'>{name}</p>
         <p className='team-detailed-title'>{title}</p>
         <p className='team-detailed-bio'>{bio}</p>
         <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="linkedin-icon">

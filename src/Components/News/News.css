@@ -7,7 +7,7 @@
 .News-main{
     background-color: #0A0A0A;
     height: 100%;
-    padding-bottom: 40px;
+    padding-bottom: 20rem;
 }
 
 .News-heading{
@@ -35,6 +35,7 @@
   overflow: hidden;
   transition: all 0.3s ease;
   background-color: #E1EFFF;
+  border-radius: 44px;
 }
 .card:hover {
   box-shadow: 3px 3px 5px #434c53;

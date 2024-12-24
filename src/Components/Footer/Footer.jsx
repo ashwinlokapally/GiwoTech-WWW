@@ -7,10 +7,10 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>© Copyright 2024, All Rights Reserved by Giwotech</p>
+        <p className='footer-copyright'>© Copyright 2024, All Rights Reserved by Giwotech</p>
         <div className="social-links">
-          <a href='https://x.com/GiwoTech' className="icon"><BsTwitterX/></a> 
-          <a href='https://www.linkedin.com/company/giwotech/' className="icon"><BsLinkedin/></a> 
+          <a href='https://x.com/GiwoTech' className="footer-icon"><BsTwitterX/></a> 
+          <a href='https://www.linkedin.com/company/giwotech/' className="footer-icon"><BsLinkedin/></a> 
         </div>
         <div className="footer-links">
           <a href="" className="footer-link">Terms & Conditions</a>
