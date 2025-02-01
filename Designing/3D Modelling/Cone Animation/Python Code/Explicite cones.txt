@@ -1,0 +1,149 @@
+import bpy
+import math
+import random
+from mathutils import Vector
+
+# Parameters
+sphere_radius = 2.8  # Sphere radius
+num_cones = 500  # Total number of cones
+cone_height = 0.6  # Cone height
+cone_radius = 0.4  # Cone base radius
+explicit_cone_height = 0.5  # Slightly smaller height for explicit cones
+explicit_cone_radius = 0.35  # Slightly smaller base radius for explicit cones
+scatter_distance = 6  # Scatter distance for animation
+animation_delay = 10  # Frames between each cone's movement
+total_frames = 500  # Total animation frames
+min_distance = cone_radius * 1.75  # Minimum distance between cones
+explicit_min_distance = explicit_cone_radius * 1.5  # Tighter spacing for explicit cones
+
+# Clear existing objects
+bpy.ops.object.select_all(action='SELECT')
+bpy.ops.object.delete(use_global=False)
+
+# Function to create a material
+def add_material(obj, name, color, roughness):
+    mat = bpy.data.materials.new(name)
+    mat.use_nodes = True
+    nodes = mat.node_tree.nodes
+    links = mat.node_tree.links
+
+    # Clear default nodes
+    for node in nodes:
+        nodes.remove(node)
+
+    # Add new nodes
+    output_node = nodes.new(type='ShaderNodeOutputMaterial')
+    output_node.location = (300, 0)
+    principled_node = nodes.new(type='ShaderNodeBsdfPrincipled')
+    principled_node.location = (0, 0)
+    links.new(principled_node.outputs[0], output_node.inputs[0])
+
+    # Set material properties
+    principled_node.inputs['Base Color'].default_value = color
+    principled_node.inputs['Roughness'].default_value = roughness
+
+    obj.data.materials.append(mat)
+
+# Function to smooth a cone
+def smooth_cone(cone):
+    bpy.context.view_layer.objects.active = cone
+    bpy.ops.object.shade_smooth()
+
+# Generate Fibonacci Sphere points
+def fibonacci_sphere(samples, radius):
+    points = []
+    phi = math.pi * (3.0 - math.sqrt(5.0))  # Golden angle
+    for i in range(samples):
+        y = 1 - (i / float(samples - 1)) * 2  # y goes from 1 to -1
+        radius_at_y = math.sqrt(1 - y * y)  # Radius at this y
+        theta = phi * i  # Angle increment
+        x = math.cos(theta) * radius_at_y
+        z = math.sin(theta) * radius_at_y
+        points.append(Vector((x * radius, y * radius, z * radius)))
+    return points
+
+# Validate position against existing positions
+def is_position_valid(new_position, existing_positions, min_dist):
+    for pos in existing_positions:
+        if (new_position - pos).length < min_dist:
+            return False
+    return True
+
+# Add a manually placed position with validation
+def add_manual_position(position, existing_positions, min_dist):
+    if is_position_valid(position, existing_positions, min_dist):
+        existing_positions.append(position)
+    else:
+        print(f"Skipped manual position {position} due to overlap.")
+
+# Create Cones
+cones = []  # Store cone objects for animation
+original_positions = []
+scatter_positions = []  # Store scattered positions
+
+# Add poles and critical Y-axis points first
+explicit_positions = [
+    Vector((0, sphere_radius, 0)),  # Top pole
+    Vector((0, -sphere_radius, 0)),  # Bottom pole
+    Vector((0.5 * sphere_radius, sphere_radius * 0.5, 0)),  # Near +Y
+    Vector((-0.5 * sphere_radius, -sphere_radius * 0.5, 0)),  # Near -Y
+]
+for pos in explicit_positions:
+    add_manual_position(pos, original_positions, explicit_min_distance)
+
+# Generate Fibonacci sphere points and filter based on minimum distance
+potential_positions = fibonacci_sphere(num_cones * 3, sphere_radius)  # Start with more points
+for position in potential_positions:
+    if is_position_valid(position, original_positions, min_distance):
+        original_positions.append(position)
+    if len(original_positions) >= num_cones:
+        break
+
+# Create cones at valid positions
+for idx, position in enumerate(original_positions):
+    # Determine size based on whether it's an explicit cone
+    is_explicit = position in explicit_positions
+    radius = explicit_cone_radius if is_explicit else cone_radius
+    height = explicit_cone_height if is_explicit else cone_height
+
+    # Add a cone at this position
+    bpy.ops.mesh.primitive_cone_add(radius1=radius, depth=height)
+    cone = bpy.context.active_object
+    cones.append(cone)
+    
+    # Smooth the cone
+    smooth_cone(cone)
+
+    # Add material (same color for all cones)
+    add_material(
+        cone,
+        "ConeMaterial",
+        (0.04, 0.04, 0.04, 1),  # Dark gray color
+        roughness=0.6
+    )
+    
+    # Point the cone toward the sphere center
+    direction = -position.normalized()  # Inward direction
+    cone.rotation_euler = direction.to_track_quat('Z', 'Y').to_euler()
+    cone.keyframe_insert(data_path="rotation_euler", frame=1)
+
+    # Handle animation
+    if is_explicit:
+        # Explicit cones remain static
+        cone.location = position
+    else:
+        # Regular cones animate
+        scatter_position = position + Vector((
+            random.uniform(-scatter_distance, scatter_distance),
+            random.uniform(-scatter_distance, scatter_distance),
+            random.uniform(-scatter_distance, scatter_distance)
+        ))
+        cone.location = scatter_position
+        cone.keyframe_insert(data_path="location", frame=1)
+
+        # Progressive assembly animation
+        assembly_start_frame = idx * animation_delay
+        cone.location = position
+        cone.keyframe_insert(data_path="location", frame=assembly_start_frame)
+
+print(f"Animation created with {len(cones)} cones evenly distributed on the sphere.")
