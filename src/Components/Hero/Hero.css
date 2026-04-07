@@ -1,150 +1,219 @@
-.hero-flexbox {
-    width: 100%;
-    min-height: 100vh;
-    background-color: #E1EFFF;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px 0;
-    overflow: visible;
-}
+/* ================= HERO BASE ================= */
 
 .hero {
-    background-color: #E1EFFF;
-    width: 100%;
-    overflow-x: hidden;
-}
-
-.hero-text {
-    text-align: left;
-    max-width: 800px;
-    color: #0A0A0A;
-    font-size: 20px;
-    padding-right: 15px;
-    width: 50%;
-}
-
-.hero-btn {
-    background: #4E5B73;
-    color: #E1EFFF;
-    font-weight: 1000;
-    font-size: 18px;
-    padding: 16px 25px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: 0;
-    outline: 0;
-}
-
-.support-supported {
-    width: 100%;
     position: relative;
+    width: 100%;
+    
+    margin: 0;
+
+    min-height: 100vh;
+    height: 100vh;
+
+    overflow: hidden;
+    background: var(--bg);
+
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 2rem;
-    padding-top: 1rem;
+    justify-content: center;
+    z-index: 2;
 }
 
-/* .hero-media {
-    width: 70%;
-    position: relative;
-    overflow: visible;
-    padding-top: 56.25%;
-    margin-right: -8rem;
-} */
-.hero-media video{
-    margin-left: 0px;
-    display: block;
-    /* border: 1px solid #cfd4df;
-    box-shadow: #4E5B73 0px 8px 18px; */
-    border-radius: 44px;
-    height: 440px;
-    width: 50vw;
-}
+/* ================= 3D CANVAS ================= */
 
-/* .mark-cover {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    left: -1px; 
-    right: -2px;
-    height: 40px;
-    background-color: #E1EFFF;
-    z-index: 10;
-} */
-
-/* .hero-3d-model {
+.hero-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: none;
-} */
+
+    z-index: 1;
+
+    pointer-events: none; /* prevents weird interaction layout shifts */
+}
+
+/* ================= OVERLAY ================= */
+
+.hero-overlay {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 5%;
+
+    padding: 80px 5% 0; /* move padding into normal flow */
+    box-sizing: border-box; /* 🔥 critical */
+
+}
+
+/* ================= TEXT ================= */
+
+.hero-text h1 {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.2;
+
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+
+body:not(.dark) .hero-text h1 {
+    text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 40px rgba(255, 255, 255, 0.35),
+        0 4px 20px rgba(255, 255, 255, 0.25);
+}
+
+body.dark .hero-text h1 {
+    text-shadow: none;
+}
+
+/* ================= BUTTON ================= */
+
+.hero-btn {
+    background: #4E5B73;
+    color: var(--bg);
+
+    font-weight: 700;
+    font-size: 18px;
+
+    padding: 16px 28px;
+    border-radius: 12px;
+
+    margin-top: 24px;
+
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    background: #111827;
+}
+
+/* ✅ DARK MODE HOVER FIX */
+body.dark .hero-btn:hover {
+    background: #374151; /* lighter than base → visible in dark */
+    transform: translateY(-2px) scale(1.02);
+
+    box-shadow: 
+        0 6px 18px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(255,255,255,0.08);
+}
+
+/* ================= SUPPORT ================= */
+
+.support-supported {
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    
+    font-weight: 700;
+
+    filter:
+        drop-shadow(0 0 6px rgba(255, 255, 255, 0.9))
+        drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
+}
+
+.support-supported img {
+    height: 30px;
+
+    filter:
+        drop-shadow(0 0 6px rgba(255, 255, 255, 0.9))
+        drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
+}
+
+/* 🔥 Remove glow from container in dark mode */
+body.dark .support-supported {
+    filter: none;
+}
+
+/* ✅ Light mode keeps glow on text + logos */
+body:not(.dark) .support-supported {
+    filter:
+        drop-shadow(0 0 6px rgba(255, 255, 255, 0.9))
+        drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media screen and (max-width: 968px) {
-    .hero-flexbox {
-        flex-direction: column;
-        padding: 20px 15px;
+    .hero-text h1 {
+        font-size: 1.8rem;
     }
-    
-    .hero-text {
-        width: 100%;
-        font-size: 1rem;
-        padding-top: 6rem;
-        padding-right: 0;
-        order: 1;
-        text-align: center;
-    }
-    
-    .hero-media {
-        width: 100%;
-        position: relative;
-        padding-top: 25%;
-        margin: 0;
-        overflow: hidden;
-        order: 2;
-    }
-    
-    .mark-cover {
-        position: absolute;
-        bottom: -5px;
-        height: 30px;
-    }
-    
-    .hero-3d-model {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-    }
-    
-    .support-supported {
-        justify-content: center;
+
+    .hero-overlay {
+        padding: 0 20px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .hero-media {
-        padding-top: 100%;
+    .hero-text h1 {
+        font-size: 1.5rem;
     }
-    
-    .hero-flexbox {
-        padding: 20px 10px;
+
+    .hero-btn {
+        font-size: 16px;
+        padding: 12px 20px;
     }
 }
 
-@media screen and (min-width: 1200px) {
-    .hero-flexbox {
-        padding: 60px 0;
-    }
+/* ================= trying ================= */
 
-    .hero-text {
-        padding-right: 20px;
-    }
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(225, 239, 255, 0.0) 40%,
+        rgba(225, 239, 255, 0.6) 100%
+    );
+
+    z-index: 2;
+}
+
+/* 🔥 REMOVE fog in dark mode */
+body.dark .hero::after {
+    background: radial-gradient(
+        circle at center,
+        rgba(10, 10, 10, 0.0) 40%,
+        rgba(10, 10, 10, 0.4) 100%
+    );
+}
+
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 600px;
+    height: 600px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(109, 40, 217, 0.9) 0%,
+        rgba(109, 40, 217, 0.6) 25%,
+        rgba(109, 40, 217, 0.3) 45%,
+        rgba(109, 40, 217, 0.1) 60%,
+        rgba(109, 40, 217, 0.0) 75%
+    );
+
+    filter: blur(100px); /* 🔥 key for soft glow */
+
+    z-index: 0;
+    pointer-events: none;
 }

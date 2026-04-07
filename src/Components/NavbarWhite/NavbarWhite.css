@@ -13,6 +13,7 @@
     z-index: 10;
     padding-left: 5%;
     padding-right: 5%;
+    background: transparent;
 }
 
 .logo-box {
@@ -33,8 +34,38 @@
 }
 
 .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 380px;
+    height: 100vh;
+
+    background: #E1EFFF;
+
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 0 40px;
+    gap: 2rem;
+
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+
+    box-shadow: -10px 0 40px rgba(0,0,0,0.15);
+
+    z-index: 9;
+}
+
+.nav-links.active {
+    transform: translateX(0);
+}
+
+body.dark .nav-links {
+    background: #0A0A0A;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.6);
 }
 
 .link-black {
@@ -46,12 +77,69 @@
     cursor: pointer;
     color: #0A0A0A;
     text-decoration: none;
+    font-size: 2rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+.link-black:hover {
+    transform: translateX(6px);
+}
+
+.link-black::before {
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+
+    width: 4px;
+    height: 60%;
+
+    background: #B80C09;
+    border-radius: 4px;
+
+    transition: transform 0.25s ease;
+}
+
+.link-black:hover::before {
+    transform: translateY(-50%) scaleY(1);
+}
+
+body.dark .link-black:hover {
+    color: #ffffff;
+}
+
+body.dark .link-black {
+    color: #E1EFFF;
+}
+
+.menu-icon {
+    font-size: 40px;   /* 🔥 controls BOTH icons equally */
+    display: block;
+    color: #0A0A0A; /* default → light mode */
+    transition: color 0.3s ease;
+}
+
+body.dark .menu-icon {
+    color: #E1EFFF;
+}
+
+.menu-btn svg {
+    width: 40px;
+    height: 40px;
 }
 
 .menu-btn {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
     cursor: pointer;
-    padding: 10px;
     z-index: 100;
 }
 
@@ -64,26 +152,72 @@
     transition: 0.3s;
 }
 
+.menu-btn:hover {
+    transform: scale(1.3);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Theme button */
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    border-radius: 50%;
+
+    transition: all 0.25s ease;
+}
+
+.theme-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+.theme-toggle:hover {
+    background: rgba(0,0,0,0.05);
+    transform: scale(1.05);
+}
+
+.menu-icon {
+    font-size: 40px;
+
+    color: #0A0A0A; /* default → light mode */
+    transition: color 0.3s ease;
+}
+
+body.dark .menu-icon {
+    color: #E1EFFF;
+}
+
 @media screen and (max-width: 768px) {
     .menu-btn {
         display: block;
     }
 
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
         width: 100%;
-        background: #E1EFFF;
-        flex-direction: column;
-        padding: 20px 0;
-        margin: 0;
-        transition: 0.3s;
+        height: 100vh;
+        left: 0;
+        right: 0;
+
+        align-items: center;
+        justify-content: center;
+
+        transform: translateY(-100%);
     }
 
     .nav-links.active {
         display: flex;
+        transform: translateY(0);
     }
 
     .link-black {

@@ -1,27 +1,85 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './NavbarWhite.css'
 import logoOutlineWhite from '../../assets/LogoOutline-black.png'
 import logoTextWhite from '../../assets/LogoText-black-crop.png'
+import logoOutlineDark from '../../assets/LogoOutline-white.png'
+import logoTextDark from '../../assets/LogoText-white-crop.png'
 import { Link } from 'react-router-dom'
-import { FaBars } from 'react-icons/fa6'
 import { IoMenu, IoClose } from "react-icons/io5"
+import SunIcon from '../../assets/sun.svg'
+import MoonIcon from '../../assets/moon.svg'
+import AutoIcon from '../../assets/auto.svg'
 
 const NavbarWhite = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [theme, setTheme] = useState("auto")
 
   const handleLinkClick = () => {
-    setIsMenuOpen(false);
-  };
+    setIsMenuOpen(false)
+  }
+
+  // ✅ Load saved theme on mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme")
+    if (savedTheme) {
+      setTheme(savedTheme)
+    }
+  }, [])
+
+  // ✅ Apply theme to body
+  useEffect(() => {
+    localStorage.setItem("theme", theme)
+
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+
+    if (theme === "dark" || (theme === "auto" && systemDark)) {
+      document.body.classList.add("dark")
+    } else {
+      document.body.classList.remove("dark")
+    }
+  }, [theme])
+
+  const isDark = theme === "dark" || 
+  (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
 
   return (
     <nav className='container-white'>
+      
+      {/* LOGO */}
       <div className='logo-box'>
-        <Link to={'/'}><img src={logoOutlineWhite} alt='' className='logo-outline'/></Link>
-        <Link to={'/'}><img src={logoTextWhite} alt='' className='logo-text'/></Link>
+        <Link to={'/'}><img src={isDark ? logoOutlineDark : logoOutlineWhite} className='logo-outline'/></Link>
+        <Link to={'/'}><img src={isDark ? logoTextDark : logoTextWhite} className='logo-text'/></Link>
       </div>
-      <div className='menu-btn' onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        {isMenuOpen ? <IoClose size={24} /> : <IoMenu size={24} />}
+
+      {/* ACTIONS (Theme + Menu) */}
+      <div className="nav-actions">
+
+        {/* 🌗 Theme Toggle */}
+        <div 
+          className="theme-toggle"
+          onClick={() => {
+            setTheme(prev => 
+              prev === "auto" ? "light" : 
+              prev === "light" ? "dark" : "auto"
+            )
+          }}
+        >
+          {theme === "light" && <img src={SunIcon} alt="light" />}
+          {theme === "dark" && <img src={MoonIcon} alt="dark" />}
+          {theme === "auto" && <img src={AutoIcon} alt="auto" />}
+        </div>
+
+        {/* ☰ Menu */}
+        <div className='menu-btn' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen 
+            ? <IoClose className="menu-icon" /> 
+            : <IoMenu className="menu-icon" />
+          }
+        </div>
+
       </div>
+
+      {/* NAV LINKS */}
       <ul className={isMenuOpen ? 'nav-links active' : 'nav-links'}>
         <Link to={'/science'} className='link-black science-link' onClick={handleLinkClick}>Science</Link>
         <Link to={'/pipeline'} className='link-black' onClick={handleLinkClick}>Pipeline</Link>
@@ -29,6 +87,7 @@ const NavbarWhite = () => {
         <Link to={'/team'} className='link-black' onClick={handleLinkClick}>Team</Link>
         <Link to={'/contact'} className='link-black' onClick={handleLinkClick}>Contact</Link>
       </ul>
+
     </nav>
   )
 }

@@ -1,6 +1,67 @@
 .support{
-  background-color: #E1EFFF;
+  background-color: var(--bg);
+  color: var(--text);
+  margin-top: 0;
 }
+
+.hero-info-separator {
+  position: sticky;
+  top: 0;
+
+  width: 100%;
+  height: 40px;
+
+  z-index: 5;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(225, 239, 255, 1),
+    rgba(225, 239, 255, 0)
+  );
+}
+
+.hero-info-separator::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0%;
+
+  width: 100%;
+  height: 2px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0,0,0,0.15),
+    transparent
+  );
+
+  box-shadow:
+    0 0 8px rgba(0,0,0,0.2),
+    0 0 16px rgba(0,0,0,0.15);
+}
+
+body.dark .hero-info-separator {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.8),
+    rgba(10, 10, 10, 0)
+  );
+}
+
+body.dark .hero-info-separator::after {
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255,255,255,0.08),
+      transparent
+    );
+
+    box-shadow:
+      0 0 6px rgba(255,255,255,0.1),
+      0 0 12px rgba(255,255,255,0.08);
+  }
 
 .custom-shape-divider-top-1732571794 {
   position: relative;
@@ -20,23 +81,18 @@
 }
 
 .custom-shape-divider-top-1732571794 .shape-fill {
-  fill: #0A0A0A;
+  color: var(--text);
 }
 
 .highlight{
   color: #B80C09;
 }
-
-body {
-  margin: 0;
-  padding: 0;
-}
   
 .science-section {
   position: relative;
-  top: -100px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 80px; /* 👈 controlled spacing */
   align-items: center;
   padding: 0 5rem 0 5rem;
   height: 650px;
@@ -44,7 +100,7 @@ body {
   
 .science-section .content {
   max-width: 60%;
-  background-color: rgb(225, 239, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.4);
 }
   
 
@@ -53,27 +109,78 @@ body {
   z-index: 2;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.4);
-  color: white;
+  color: var(--text);
+}
+
+/* ✅ DARK MODE — real glass (not washed gray) */
+body.dark .content {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
   
 .science-section .btn {
   background-color: #4E5B73;
   color: #fff;
   font-size: 1.2rem;
-  font-weight: 550;
-  /* padding: 15px 40px; */
+  font-weight: 700;
   border-radius: 14px;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
   
 .science-section .btn:hover {
   background-color: #4E5B73;
+  transform: translateY(-2px);
+  background: #111827;
 }
+
+/* ================= PDB TOP VIEW FIX (SAFE ADD) ================= */
+
+.science-section .shapes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 420px;
+}
+
+/* Ensure viewer actually gets space */
+#pdb-viewer-top {
+  width: 100%;
+  height: 320px;
+  min-height: 260px;
+  transform: translateY(-10px);
+}
+
+/* Prevent parent from collapsing */
+.science-section {
+  align-items: center;
+}
+
+/* Optional: better scaling inside flex */
+.science-section .content {
+  flex: 1;
+}
+
+/* 🔥 FIX: Top PDB viewer container */
+
+.shapes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #pdb-viewer-top {
+    width: 100%;
+    height: 300px; /* 👈 CRITICAL */
+    min-height: 250px;
+  }
 
 .next-steps-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 60px;
   align-items: center;
   padding: 0 5rem 5rem 5rem;
   height: 650px;
@@ -81,7 +188,7 @@ body {
 
 .next-steps-section .content {
   max-width: 80%;
-  background-color: rgb(225, 239, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .next-steps-section .highlight {
@@ -92,15 +199,27 @@ body {
   background-color: #4E5B73;
   color: #E1EFFF;
   font-size: 1.2rem;
-  font-weight: 550;
-  /* padding: 15px 40px; */
+  font-weight: 700;
   border-radius: 14px;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .next-steps-section .btn:hover {
   cursor: pointer;
+  transform: translateY(-2px);
+  background: #111827;
+}
+
+body.dark .science-section .btn:hover,
+body.dark .next-steps-section .btn:hover {
+    background: #374151;
+    transform: translateY(-2px) scale(1.02);
+
+    box-shadow: 
+        0 6px 18px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(255,255,255,0.08);
 }
 
 .shapes-img {
@@ -112,39 +231,58 @@ body {
 .info-media video{
   margin-left: 0px;
   display: block;
-  /* border: 1px solid #cfd4df; */
   box-shadow: #4E5B73 0px 8px 18px;
   border-radius: 44px;
   height: 380px;
   width: auto;
 }
 
+.info-media {
+  width: 420px;   /* 🔥 control size */
+  height: 320px;
+  position: relative;
+  z-index: 1;
+}
+
+#pdb-viewer {
+  width: 100%;
+  height: 100%;
+}
+
 .content {
   box-sizing: border-box;
   border-radius: 10px;
-  box-shadow: #9AA3BA 0px 6px 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   padding-left: 30px;
   padding-top: 27px;
   padding-bottom: 27px;
   padding-right: 30px;
-  border: 0.2px solid #4E5B73; 
+  border: 1px solid rgba(78, 91, 115, 0.25); 
   border-radius: 44px;
   line-height: 40px;
+  position: relative;
+  z-index: 2;
 }
+
+body.dark .content {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
 .info-content-heading{
   font-size: 3rem;
-  color: #0A0A0A;
+  color: var(--text);
   padding-bottom: 20px;
 }
 .info-content-description{
   font-size: 1.4rem;
-  color: #0A0A0A;
+  color: var(--text);
   padding-bottom: 15px;
 }
 
 .Supported-section{
-  background-color: #0A0A0A;
-  color: #E1EFFF;
+  background-color: var(--bg);
+  color: var(--text);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -160,7 +298,7 @@ body {
 }
 
 .logo-slider {
-  background: #0A0A0A;
+  color: var(--text);
   height: 150px;
   margin: auto;
   overflow: hidden;
@@ -196,14 +334,15 @@ body {
   animation-play-state: paused;
 }
 
-.final-section{
-  background-color: #E1EFFF;
-  color: #0A0A0A;
+.final-section {
+  background-color: var(--bg);
+  color: var(--text);
+
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 20rem;
-  height: 50vh;
+
+  padding: 4rem 0;
 }
 
 .final-section-content {
@@ -211,62 +350,101 @@ body {
   flex-direction: column;
   text-align: center;
 }
+
 .final-section-content h2{
   font-size: 34px;
-  padding-top: 28rem;
+  padding-top: 0;
   padding-bottom: 1rem;
   font-weight: 600;
 }
+
 .final-section-content p{
   font-size: 20px;
   padding-bottom: 10px;
 }
+
 .input-container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
+
+  margin-top: 24px;
   margin-bottom: 7rem;
-  border: 0.5px solid #0A0A0A;
-  background-color: #E1EFFF;
-  padding: 4px 4px 4px 4px;
-  border-radius: 12px;
-  width: 60%;
-  margin-left: 7rem;
+
+  padding: 6px;
+
+  border-radius: 16px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(0,0,0,0.15);
+
+  backdrop-filter: blur(10px);
+}
+
+body.dark .input-container {
+  background: rgba(20,20,20,0.8);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .input-box{
   width: 60%;
   margin-right: 10px;
-  padding: 12px;
-  padding-right: 25px;
+  padding: 14px 18px;
+
   border: none;
-  background-color: #E1EFFF;
+
+  background-color: transparent;
+  color: var(--text);
+
+  outline: none;
 }
 ::placeholder {
   color: #4E5B73;
   opacity: 1;
 }
 .input-box::-webkit-input-placeholder {
-  color: #4E5B73; 
+  color: #6B7280; 
 }
 
 .final-section button {
   padding: 10px;
 }
 
+.final-section .btn {
+  padding: 12px 20px;
+  border-radius: 12px;
+}
+
+/* ✅ Final section button hover (same as Hero) */
+.final-section .btn {
+  transition: all 0.3s ease;
+}
+
+.final-section .btn:hover {
+  transform: translateY(-2px);
+  background: #111827;
+}
+
+body.dark .final-section .btn:hover {
+  background: #374151;
+  transform: translateY(-2px) scale(1.02);
+
+  box-shadow: 
+    0 6px 18px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.08);
+}
+
 @keyframes appear{
   from {
     opacity: 0;
     scale: 0.5;
-    /* transform: translateX(-200px);
-    transform: translateY(-400px); */
-    /* transform: translate(-300px, -300px);*/
   }
   to {
     opacity: 1;
     scale: 1;
-    /* transform: translateX(0px);
-    transform: translateY(0px); */
     transform: translate(0px, 0px);
   }
 }
@@ -275,14 +453,10 @@ body {
 @keyframes appears{
   from {
     opacity: 0;
-    /* scale: 0.5; */
-    /* transform: translateX(200px); */
     clip-path: inset( 0 0 100% 100% );
   }
   to {
     opacity: 1;
-    /* scale: 1; */
-    /* transform: translateX(0px); */
     clip-path: inset(0 0 0 0);
   }
 }

@@ -10,7 +10,7 @@ const HomePage = () => {
     <NavbarWHite/>
     <Hero/>
     <Info/>
-    <FooterBlack/>
+    <Footer/>
     </>
   )
 }

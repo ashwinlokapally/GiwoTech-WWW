@@ -1,112 +1,296 @@
-import React, { useRef } from 'react'
-import './Info.css'
-import nersc from '../../assets/NERSC_BLACK.svg'
-import nsf from '../../assets/NSF_Small.svg'
-import sbi from '../../assets/The_Science_behind_it_V.svg'
-import ons from '../../assets/Our_next_steps_ahead_V.svg'
-import mit from '../../assets/MIT.svg'
-import neiCorps from '../../assets/NEI_Crops.svg'
-import venture from '../../assets/Venture_Monitoring_Networks.svg'
-import nerse from '../../assets/NERSE.svg'
-import heroReverse from '../../assets/hero-video-cropped.mp4'
-import { useNavigate } from 'react-router-dom'
+import "./Info.css";
+import { useNavigate } from "react-router-dom";
+import React, { useRef, useEffect, useState } from "react";
 
 const Info = () => {
   const navigate = useNavigate();
   const emailInputRef = useRef();
 
+  const viewerRef = useRef(null);
+  const topViewerRef = useRef(null);
+
+  // ✅ FIX: do NOT read theme during initial render
+  const [isDark, setIsDark] = useState(false);
+
   const handleClick = () => {
-    navigate('/science');
+    navigate("/science");
   };
 
+  // ================= THEME OBSERVER =================
+  useEffect(() => {
+    const updateTheme = () => {
+      const hasDark = document.body.classList.contains("dark");
+      setIsDark(hasDark);
+    };
+
+    // 🔥 CRITICAL: sync AFTER mount
+    updateTheme();
+
+    const observer = new MutationObserver(updateTheme);
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // ================= MAIN VIEWER SETUP =================
+  useEffect(() => {
+    if (!window.$3Dmol) return;
+
+    const element = document.getElementById("pdb-viewer");
+    const topElement = document.getElementById("pdb-viewer-top");
+
+    if (!element && !topElement) return;
+
+    const isMobile = window.innerWidth < 768;
+
+    // 🔥 destroy old viewers
+    if (viewerRef.current) {
+      viewerRef.current.clear();
+      viewerRef.current = null;
+    }
+
+    if (topViewerRef.current) {
+      topViewerRef.current.clear();
+      topViewerRef.current = null;
+    }
+
+    const getBg = () =>
+      getComputedStyle(document.body)
+        .getPropertyValue("--bg")
+        .trim();
+
+    const config = {
+      backgroundColor: getBg(),
+    };
+
+    const viewer = element
+      ? window.$3Dmol.createViewer(element, config)
+      : null;
+
+    const topViewer = topElement
+      ? window.$3Dmol.createViewer(topElement, config)
+      : null;
+
+    viewerRef.current = viewer;
+    topViewerRef.current = topViewer;
+
+    let frameId = null;
+    let topActive = false;
+    let bottomActive = false;
+    let lastTime = 0;
+    let isTabActive = true;
+
+    let topObserver = null;
+    let bottomObserver = null;
+
+    const isValidSize = (el) => {
+      return el && el.clientWidth > 0 && el.clientHeight > 0;
+    };
+
+    const handleVisibility = () => {
+      isTabActive = !document.hidden;
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    fetch("/GiwoTech-WWW/models/1crn.pdb")
+      .then((res) => res.text())
+      .then((data) => {
+        setTimeout(() => {
+          requestAnimationFrame(() => {
+            // ===== BOTTOM VIEWER =====
+            if (viewer) {
+              viewer.addModel(data, "pdb");
+              viewer.setStyle({}, {
+                cartoon: {
+                  color: "spectrum",
+                  thickness: isMobile ? 0.3 : 0.6,
+                  opacity: 0.95,
+                },
+              });
+              viewer.zoomTo();
+              viewer.center();
+
+              if (isValidSize(element)) {
+                viewer.render();
+              }
+            }
+
+            // ===== TOP VIEWER =====
+            if (topViewer) {
+              topViewer.addModel(data, "pdb");
+              topViewer.setStyle({}, {
+                cartoon: {
+                  color: "spectrum",
+                  opacity: 0.9,
+                  thickness: isMobile ? 0.3 : 0.6,
+                },
+              });
+              topViewer.zoomTo();
+              topViewer.center();
+
+              if (isValidSize(topElement)) {
+                topViewer.render();
+              }
+            }
+
+            const animate = (time = 0) => {
+              if (!isTabActive) return;
+
+              if (!topActive && !bottomActive) {
+                frameId = null;
+                return;
+              }
+
+              if (time - lastTime < 33) {
+                frameId = requestAnimationFrame(animate);
+                return;
+              }
+
+              lastTime = time;
+
+              if (topActive && topViewerRef.current && isValidSize(topElement)) {
+                topViewerRef.current.rotate(0.04);
+                topViewerRef.current.render();
+              }
+
+              if (bottomActive && viewerRef.current && isValidSize(element)) {
+                viewerRef.current.rotate(0.12);
+                viewerRef.current.render();
+              }
+
+              frameId = requestAnimationFrame(animate);
+            };
+
+            if (topElement) {
+              topObserver = new IntersectionObserver(
+                ([entry]) => {
+                  topActive = entry.isIntersecting;
+
+                  if ((topActive || bottomActive) && !frameId) {
+                    animate();
+                  }
+                },
+                { threshold: 0.4 }
+              );
+
+              topObserver.observe(topElement);
+            }
+
+            if (element) {
+              bottomObserver = new IntersectionObserver(
+                ([entry]) => {
+                  bottomActive = entry.isIntersecting;
+
+                  if ((topActive || bottomActive) && !frameId) {
+                    animate();
+                  }
+                },
+                { threshold: 0.4 }
+              );
+
+              bottomObserver.observe(element);
+            }
+          });
+        }, 100);
+      });
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      document.removeEventListener("visibilitychange", handleVisibility);
+
+      if (topObserver) topObserver.disconnect();
+      if (bottomObserver) bottomObserver.disconnect();
+    };
+  }, [isDark]);
+
   return (
-    <div className='support'>
-      {/* <div class="custom-shape-divider-top-1732571794">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-        </svg>
-      </div> */}
-      
-      {/* <div className='support-supported'>  
-        Supported by
-        <img src={nsf} alt=''></img>
-        <img src={nersc} alt=''></img>
-      </div> */}
-        <br></br>
-        
+    <div className="support">
+      <div className="hero-info-separator"></div>
+
       <div className="science-section scroll-animate">
         <div className="shapes scroll-translate-animation">
-          <img src={sbi} alt="" />
+          <div
+            key={`top-${isDark}`}
+            id="pdb-viewer-top"
+            style={{ width: "100%", height: "100%" }}
+          ></div>
         </div>
+
         <div className="content">
-          <h2 className='info-content-heading'>
-          The <span className="highlight">Science</span> behind it
+          <h2 className="info-content-heading">
+            The <span className="highlight">Science</span> behind it
           </h2>
-          
-          <p className='info-content-description'>
-            Atomic level dynamic simulations of protein structural <br></br>interactome provides unconventional grasp on <br></br>biomolecular systems.
+
+          <p className="info-content-description">
+            Atomic level dynamic simulations of protein structural <br />
+            interactome provides unconventional grasp on <br />
+            biomolecular systems.
           </p>
-          
-          <button className="btn info-btn" onClick={handleClick}>Learn More</button>
+
+          <button className="btn info-btn" onClick={handleClick}>
+            Learn More
+          </button>
         </div>
       </div>
 
       <div className="next-steps-section scroll-animate">
         <div className="content">
-          <h2 className='info-content-heading'>
-          Our next <span className="highlight">steps</span> ahead
+          <h2 className="info-content-heading">
+            Our next <span className="highlight">steps</span> ahead
           </h2>
-          <p className='info-content-description'>Simulating self-assembly of <br></br> biomolecular systems</p>
-          <button className="btn info-btn" onClick={handleClick}>Explore</button>
+          <p className="info-content-description">
+            Simulating self-assembly of <br />
+            biomolecular systems
+          </p>
+          <button className="btn info-btn" onClick={handleClick}>
+            Explore
+          </button>
         </div>
 
         <div className="info-media">
-          {/* <img src={ons} alt="" /> */}
-          <video src={heroReverse}  autoPlay
-        loop
-        muted
-        playsInline></video>
+          <div
+            key={`bottom-${isDark}`}
+            id="pdb-viewer"
+            style={{ width: "100%", height: "100%" }}
+          ></div>
         </div>
       </div>
 
-      {/* <div className='Supported-section'>
-        <p>Supported by</p>
-        <br></br>
-      </div>
-      <div className="logo-slider">
-      <div className="logo-slide-track">
-      <a href='https://vms.mit.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={mit} alt="MIT logo" /></a>
-        <a href='https://www.nersc.gov/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={nerse} alt="NERSE logo" /></a>
-        <a href='https://icorps.mit.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={neiCorps} alt="NEI Crops logo" /></a>
-        <a href='https://vmn.sites.northeastern.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={venture} alt="Venture Monitoring Networks logo" /></a>
-        
-        <a href='https://vms.mit.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={mit} alt="MIT logo" /></a>
-        <a href='https://www.nersc.gov/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={nerse} alt="NERSE logo" /></a>
-        <a href='https://icorps.mit.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={neiCorps} alt="NEI Crops logo" /></a>
-        <a href='https://vmn.sites.northeastern.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={venture} alt="Venture Monitoring Networks logo" /></a>
-        
-        <a href='https://vms.mit.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={mit} alt="MIT logo" /></a>
-        <a href='https://www.nersc.gov/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={nerse} alt="NERSE logo" /></a>
-        <a href='https://icorps.mit.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={neiCorps} alt="NEI Crops logo" /></a>
-        <a href='https://vmn.sites.northeastern.edu/' target="_blank" rel="noopener noreferrer"><img className="logo-slide" src={venture} alt="Venture Monitoring Networks logo" /></a>
-      
-      </div>
-    </div> */}
-    <div className="final-section">
-      <div className="final-section-content">
-        <h2>Ready to work at the forefront of <br></br>innovation?</h2>
-        <p>Powering the world’s best creative<br></br> teams. From next-gen startups to <br></br>established enterprises.</p>
-        <div className="input-container">
-          <input type="email" className="input-box" ref={emailInputRef} placeholder="Enter email address" />
-          <button className='btn' onClick={() => {
-              navigate(`/contact?email=${emailInputRef.current.value}`);
-          }}>Learn More</button>
+      <div className="final-section">
+        <div className="final-section-content">
+          <h2>
+            Ready to work at the forefront of <br />
+            innovation?
+          </h2>
+          <p>
+            Powering the world’s best creative <br />
+            teams. From next-gen startups to <br />
+            established enterprises.
+          </p>
+          <div className="input-container">
+            <input
+              type="email"
+              className="input-box"
+              ref={emailInputRef}
+              placeholder="Enter email address"
+            />
+            <button
+              className="btn"
+              onClick={() => {
+                navigate(`/contact?email=${emailInputRef.current.value}`);
+              }}
+            >
+              Learn More
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    </div>
-    
-  )
-}
+  );
+};
 
-export default Info
+export default Info;
