@@ -5,17 +5,17 @@
   }
 
 .News-main{
-    background-color: #0A0A0A;
-    height: 100%;
+    background-color: var(--bg);
+    min-height: 100vh;
     padding-bottom: 20rem;
 }
 
 .News-heading{
-    padding-top: 85px;
+    padding-top: 1px;
     padding-bottom: 55px;
     text-align: center;
     font-size: 42px;
-    color: #E1EFFF;
+    color: var(--text);
 }
 
 .cards-container {
@@ -25,23 +25,28 @@
   gap: 4rem;
   align-items: start;
 }
+
 .card {
-  width: 360px;
   width: calc((100% - 8rem) / 3);
   min-height: 400px;
   box-shadow: 3px 3px 3px #373e44;
-  border-radius: 4px;
+  border-radius: 44px;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s ease;
-  background-color: #E1EFFF;
-  border-radius: 44px;
+
+  background-color: var(--card-bg);
+  color: var(--card-text);
+
+  opacity: 0.95;
 }
+
 .card:hover {
   box-shadow: 3px 3px 5px #434c53;
+  transform: translateY(-4px);
+
   background-color: #4E5B73;
   color: #E1EFFF;
-  transform: translateY(-2px);
 }
 .card-header {
   width: 100%;
@@ -58,16 +63,43 @@
 }
 .news-title {
   font-weight: 600;
-  color: #0A0A0A;
+  color: var(--card-text);
 }
 .news-desc {
-  color: #0A0A0A;
+  color: var(--card-text);
   font-size: 18px;
   line-height: 1.4rem;
 }
 
 .custom-divider {
-  border-top: #4E5B73 solid 2px;
+  border-top: 2px solid var(--card-text);
+  opacity: 0.3;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.back-button-container {
+  padding-top: 100px;
+  padding-left: 5%;
+}
+
+.back-btn {
+  background: var(--inverse-bg);
+  color: var(--inverse-text);
+
+  border: 2px solid var(--inverse-text);
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* hover */
+.back-btn:hover {
+  transform: translateX(-5px);
+  opacity: 0.85;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }

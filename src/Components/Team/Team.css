@@ -1,35 +1,29 @@
- body {
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-}
-
 .team-section {
   text-align: center;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 50px;
-  background-color: #0A0A0A;
-  color: #E1EFFF;
+  background: var(--bg);
+  color: var(--text);
   padding: 5% 17% 17% 17%;
 }
 .team-heading{
-  font-size: 20px;
+  font-size: 36px;
+  font-weight: 700;
   
 }
 .team-description{
-  font-size: 22.4px;
+  font-size: 1.4rem;
 }
-
 
 .team-founding-heading{
   line-height: 63.85px;
-  font-size: 38px;
+  font-size: 34px;
+  font-weight: 600;
   padding-bottom: 45px;
 }
 
 .team-advisors{
   line-height: 63.85px;
-  font-size: 38px;
+  font-size: 34px;
+  font-weight: 600;
   padding-top: 45px;
   padding-bottom: 45px;
 }
@@ -99,22 +93,31 @@
 }
 
 .team-member {
-  background-color: #E1EFFF;
-  color: #0A0A0A;
-  border: 0 solid #e5e7eb;
+  background: var(--inverse-bg);
+  color: var(--inverse-text);
+  border: 1px solid rgba(78, 91, 115, 0.25);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+
   box-sizing: border-box;
-  border-radius: 55px;
+  border-radius: 44px;
   padding: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 60px;
+  width: 100%;
+  max-width: 424px;
   height: 520px;
-  width: 424px; 
   position: relative;
   flex-direction: column;
   overflow: hidden;
-  transition: transform .3s ease-in-out, background-color .3s ease-in-out;
+  /* transition: transform .3s ease-in-out, background-color .3s ease-in-out; */
+}
+
+body.dark .team-member {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .team-image {
@@ -168,7 +171,7 @@
   top: -100%;
   left: 0;
   text-align: center;
-  color: #0A0A0A;
+  color: var(--inverse-text);
   padding: 50px 25px 0px 25px;
   transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
 }
@@ -194,7 +197,7 @@
 
 .team-detailed-bio{
   justify-content: center;
-  margin-bottom: 55px;
+  margin-bottom: 44px;
   font-size: 21px;
   font-weight: 450;
   line-height: 2;
@@ -207,6 +210,10 @@
   overflow: hidden;
   width: 100%;
   transition: font-size 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-6px) scale(1.02);
 }
 
 .team-member:hover .default-content {
@@ -225,4 +232,19 @@
   width: 30px;
   margin-top: 20px;
   font-size: 30px;
+
+  color: inherit;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.linkedin-icon:hover {
+  transform: translateY(-2px);
+  opacity: 0.7;
 }

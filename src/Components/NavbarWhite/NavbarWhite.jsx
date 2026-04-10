@@ -14,6 +14,9 @@ const NavbarWhite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [theme, setTheme] = useState("auto")
 
+  // ✅ NEW: scroll state
+  const [scrolled, setScrolled] = useState(false)
+
   const handleLinkClick = () => {
     setIsMenuOpen(false)
   }
@@ -39,11 +42,21 @@ const NavbarWhite = () => {
     }
   }, [theme])
 
+  // ✅ NEW: scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   const isDark = theme === "dark" || 
   (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
 
   return (
-    <nav className='container-white'>
+    <nav className={`container-white ${scrolled ? "scrolled" : ""}`}>
       
       {/* LOGO */}
       <div className='logo-box'>
@@ -51,10 +64,10 @@ const NavbarWhite = () => {
         <Link to={'/'}><img src={isDark ? logoTextDark : logoTextWhite} className='logo-text'/></Link>
       </div>
 
-      {/* ACTIONS (Theme + Menu) */}
+      {/* ACTIONS */}
       <div className="nav-actions">
 
-        {/* 🌗 Theme Toggle */}
+        {/* Theme Toggle */}
         <div 
           className="theme-toggle"
           onClick={() => {
@@ -69,7 +82,7 @@ const NavbarWhite = () => {
           {theme === "auto" && <img src={AutoIcon} alt="auto" />}
         </div>
 
-        {/* ☰ Menu */}
+        {/* Menu */}
         <div className='menu-btn' onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen 
             ? <IoClose className="menu-icon" /> 

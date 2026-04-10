@@ -122,8 +122,8 @@ function SphereSystem({ isDarkRef, shouldAnimateRef }) {
     const mesh = meshRef.current;
     if (!mesh) return;
 
-    const time = (timeRef.current += 0.01);
-    const phase = Math.floor(time / 5) % 2;
+    const time = (timeRef.current += 0.009);
+    const phase = Math.floor(time / 7) % 2;
 
     if (!isMobile) {
       const dx = mouse.current.x - prevMouse.current.x;
@@ -160,7 +160,7 @@ function SphereSystem({ isDarkRef, shouldAnimateRef }) {
       mesh.getMatrixAt(i, tempMatrix);
       tempPosition.setFromMatrixPosition(tempMatrix);
 
-      tempPosition.lerp(target, 0.01);
+      tempPosition.lerp(target, 0.009);
 
       const dist = tempPosition.distanceTo(target);
       const t = Math.min(dist / 3, 1);

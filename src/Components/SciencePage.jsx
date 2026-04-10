@@ -1,13 +1,13 @@
 import Science from './Science/Science'
 import NavbarWhite from './NavbarWhite/NavbarWhite'
-import FooterBlack from './FooterBlack/FooterBlack'
+import Footer from './Footer/Footer'
 
 const SciencePage = () => {
   return (
     <>
         <NavbarWhite/>
         <Science/>
-        <FooterBlack/>
+        <Footer/>
     </>
   )
 }

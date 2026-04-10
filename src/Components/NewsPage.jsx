@@ -1,11 +1,11 @@
 import React from 'react'
 import News from './News/News'
 import Footer from './Footer/Footer'
-import Navbar from './Navbar/Navbar'
+import NavbarWhite from './NavbarWhite/NavbarWhite'
 const NewsPage = () => {
   return (
     <>
-    <Navbar/>
+    <NavbarWhite/>
     <News/>
     <Footer/>
     </>

@@ -15,19 +15,16 @@ const NewsUpdates = () => {
             title: "BARDA NEWS", 
             text: "GiwoTech's cutting-edge AI models for accelerating precision therapeutics discovery through viral modeling caught the attention of BARDA (Biomedical Advanced Research and Development Authority).", 
             link: "https://medicalcountermeasures.gov/newsroom/2024/ai-challenge/",
-            backgroundColor: "#E1EFFF"
         },
         { 
             title: "BUSINESS WIRE NEWS", 
             text: "Giwotech has made it to the final round of The Eddies, the signature innovation competition organized by the Massachusetts Innovation Network.", 
             link: "https://www.businesswire.com/news/home/20230607005549/en/Massachusetts-Innovation-Network-Announces-its-2023-Eddies-Finalists",
-            backgroundColor: "#E1EFFF"
         },
         { 
             title: "COMING SOON", 
             text: "Stay Tuned for Exciting Updates", 
             link: "",
-            backgroundColor: "#E1EFFF"
         },
     ];
 

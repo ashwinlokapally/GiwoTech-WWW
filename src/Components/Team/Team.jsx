@@ -46,10 +46,10 @@ const Team = () => {
           linkedinUrl="https://www.linkedin.com/in/arthurhiller/"
         />
         <TeamMember
-          name="Azer Khan"
-          imageUrl={azer}
-          bio={"Senior Product Manager\nIBM Power Systems"}
-          linkedinUrl="https://www.linkedin.com/in/azerkhan/"
+          name="Petros Kotidis"
+          imageUrl={petro}
+          bio={"Fellow and commercialization advisor, Noble Reach Foundation\n Formerly CEO of Block Engineering,\n advisor at In-Q-Tel "}
+          linkedinUrl="https://www.linkedin.com/in/petros-kotidis-322506/"
         />
         <TeamMember
           name="Michael Hagan"
@@ -62,13 +62,13 @@ const Team = () => {
           imageUrl={jodi}
           bio={"Professor of Chemistry &\nBiochemistry\nUniversity of Delaware"}
           linkedinUrl="https://www.linkedin.com/in/jodi-hadden-perilla-63445416a/"
-        />    
-        <TeamMember
-          name="Petros Kotidis"
-          imageUrl={petro}
-          bio={"Fellow and commercialization advisor, Noble Reach Foundation\n Formerly CEO of Block Engineering,\n advisor at In-Q-Tel "}
-          linkedinUrl="https://www.linkedin.com/in/petros-kotidis-322506/"
-        />    
+        />
+        {/* <TeamMember
+          name="Azer Khan"
+          imageUrl={azer}
+          bio={"Senior Product Manager\nIBM Power Systems"}
+          linkedinUrl="https://www.linkedin.com/in/azerkhan/"
+        /> */}        
       </div>
     </div>
   );

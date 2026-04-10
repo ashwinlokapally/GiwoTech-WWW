@@ -1,12 +1,12 @@
 import Pipeline from './Pipeline/Pipeline'
 import Footer from './Footer/Footer'
-import Navbar from './Navbar/Navbar'
+import NavbarWhite from './NavbarWhite/NavbarWhite'
 const PipelinePage = () => {
   return (
     <>
-      <Navbar/>
-        <Pipeline/>
-        <Footer/>
+      <NavbarWhite/>
+      <Pipeline/>
+      <Footer/>
     </>
   )
 }

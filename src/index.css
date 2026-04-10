@@ -14,11 +14,23 @@ html, body {
 :root {
   --bg: #E1EFFF;
   --text: #0A0A0A;
+
+  --card-bg: #0A0A0A;
+  --card-text: #E1EFFF;
+
+  --inverse-bg: #0A0A0A;
+  --inverse-text: #E1EFFF;
 }
 
 body.dark {
   --bg: #0A0A0A;
   --text: #E1EFFF;
+
+  --card-bg: #E1EFFF;
+  --card-text: #0A0A0A;
+
+  --inverse-bg: #E1EFFF;
+  --inverse-text: #0A0A0A;
 }
 
 *{

@@ -1,6 +1,7 @@
 .science {
     padding: 5%;
-    background-color: #E1EFFF;
+    background-color: var(--bg);
+    color: var(--text);
     text-align: center;
     display: block;
     justify-content: center;
@@ -17,7 +18,7 @@
   
   .science-heading h1 {
     font-size: 2.5em;
-    color: #0A0A0A;
+    color: var(--text);
     padding-top: 50px;
     margin-bottom: 10px;
   }
@@ -27,7 +28,7 @@
     text-align: center;
     font-weight: 400;
     font-size: 1.4em;
-    color: #0A0A0A;
+    color: var(--text);
     padding-top: 10px;
     padding-bottom: 30px;
   }
@@ -42,7 +43,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #E1EFFF;
+    background-color: transparent;
     border-radius: 20px;
     padding: 20px;
     /* box-shadow: 0px 4px 10px rgba(0,0,0,0.1); */
@@ -63,12 +64,12 @@
   }
   .science-content h2 {
     font-size: 2em;
-    color: #0A0A0A;
+    color: var(--text);
   }
   
   .science-content p {
     font-size: 1.4em;
-    color: #0A0A0A;
+    color: var(--text);
   }
   .science-descriptions{
     line-height: 32px;

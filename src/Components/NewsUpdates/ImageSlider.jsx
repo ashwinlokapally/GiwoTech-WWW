@@ -7,13 +7,12 @@ const slideStyles = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  backgroundColor: "#4E5B73",
-  color: "#0A0A0A",
   fontSize: "24px",
   fontWeight: "bold",
   textAlign: "center",
   padding: "20px",
   boxSizing: "border-box",
+  transition: "all 0.3s ease", // smooth theme transition
 };
 
 const textContainerStyles = {
@@ -26,14 +25,14 @@ const textContainerStyles = {
 const titleStyles = {
   fontSize: "2.5rem",
   fontWeight: "bold",
-  color: "#0A0A0A",
+  color: "inherit",
   marginBottom: "10px",
 };
 
 const textStyles = {
   fontSize: "1.5rem",
   fontWeight: "normal",
-  color: "#0A0A0A",
+  color: "inherit",
   lineHeight: "1.5",
 };
 
@@ -43,7 +42,7 @@ const rightArrowStyles = {
   transform: "translate(0, -50%)",
   right: "-40px",
   fontSize: "40px",
-  color: "#E1EFFF",
+  color: "var(--text)",
   zIndex: 1,
   cursor: "pointer",
 };
@@ -54,7 +53,7 @@ const leftArrowStyles = {
   transform: "translate(0, -50%)",
   left: "-40px",
   fontSize: "40px",
-  color: "#E1EFFF",
+  color: "var(--text)",
   zIndex: 1,
   cursor: "pointer",
 };
@@ -75,24 +74,45 @@ const dotStyle = {
   cursor: "pointer",
   fontSize: "20px",
   transition: "transform 0.2s ease",
-  color: "#4E5B73",
+  color: "rgba(78,91,115,0.6)",
 };
 
 const activeDotStyle = {
   ...dotStyle,
-  color: "#E1EFFF",
+  color: "var(--text)",
 };
 
 const linkStyles = {
-  display: 'block',
-  width: '100%',
-  height: '100%',
-  cursor: 'pointer'
+  display: "block",
+  width: "100%",
+  height: "100%",
+  cursor: "pointer",
 };
 
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+
+  // ✅ THEME STATE (FIX)
+  const [isDark, setIsDark] = useState(false);
+
+  // ✅ OBSERVE THEME CHANGES (FIX)
+  useEffect(() => {
+    const updateTheme = () => {
+      setIsDark(document.body.classList.contains("dark"));
+    };
+
+    updateTheme(); // 🔥 IMPORTANT (initial sync AFTER mount)
+
+    const observer = new MutationObserver(updateTheme);
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
@@ -110,6 +130,7 @@ const ImageSlider = ({ slides }) => {
     setCurrentIndex(slideIndex);
   };
 
+  // Auto slide
   useEffect(() => {
     let slideInterval;
     if (!isPaused) {
@@ -117,25 +138,27 @@ const ImageSlider = ({ slides }) => {
         goToNext();
       }, 5000);
     }
-  
+
     return () => clearInterval(slideInterval);
   }, [goToNext, isPaused]);
 
+  // ✅ THEME-BASED CARD STYLE (FINAL FIX)
   const slideStylesWithBackground = {
     ...slideStyles,
-    backgroundColor: slides[currentIndex].backgroundColor || "#E1EFFF",
+    backgroundColor: isDark ? "#E1EFFF" : "#0A0A0A",
+    color: isDark ? "#0A0A0A" : "#E1EFFF",
   };
 
   const handleClick = (e) => {
     e.preventDefault();
     const url = slides[currentIndex].link;
     if (url) {
-      window.open(url, '_blank', 'noopener,noreferrer');
+      window.open(url, "_blank", "noopener,noreferrer");
     }
   };
 
   return (
-    <div 
+    <div
       style={sliderStyles}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -148,10 +171,11 @@ const ImageSlider = ({ slides }) => {
           ❱
         </div>
       </div>
-      <a 
-        href={slides[currentIndex].link || '#'} 
-        target="_blank" 
-        rel="noopener noreferrer" 
+
+      <a
+        href={slides[currentIndex].link || "#"}
+        target="_blank"
+        rel="noopener noreferrer"
         style={linkStyles}
         onClick={handleClick}
       >
@@ -162,6 +186,7 @@ const ImageSlider = ({ slides }) => {
           </div>
         </div>
       </a>
+
       <div style={dotsContainerStyles}>
         {slides.map((slide, slideIndex) => (
           <div

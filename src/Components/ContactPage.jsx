@@ -1,12 +1,12 @@
 import React from 'react'
 import Contact from './Contact/Contact'
 import Footer from './Footer/Footer'
-import Navbar from './Navbar/Navbar'
+import NavbarWhite from './NavbarWhite/NavbarWhite'
 
 const ContactPage = () => {
   return (
     <>
-        <Navbar/>
+        <NavbarWhite/>
         <Contact/>
         <Footer/>
     </>
