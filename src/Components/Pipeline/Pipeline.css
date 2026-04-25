@@ -1,54 +1,93 @@
-.pipeline{
+.pipeline {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: flex-start;
+
+    min-height: 100vh;
+
     background-color: var(--bg);
     color: var(--text);
-    height: 780px;
-    margin-top: 0;
+
+    padding-top: 140px; /* 🔥 important for navbar */
 }
-.heading{
+
+.heading {
     color: var(--text);
-    margin-bottom: 90px;
-    margin-top: 0px;
-    font-size: 35px;
+
+    margin-bottom: 60px;
+
+    font-size: 38px;
+    font-weight: 700;
 }
-.pipeline-body{
-    color: var(--text);
+
+.pipeline-body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    font-weight: 600;
-    background-color: #0A0A0A;
-    color: #E1EFFF;
-    padding-left: 13%;
-    padding-right: 13%;
-    padding-top: 11%;
-    padding-bottom: 11%;
-    border: 2px solid #4E5B73;
-    box-shadow: #4f6273 3px 5px 14px;
-    border-radius: 44px;
-    margin-bottom: 50px;
-    margin-top:-25px;
-    font-size: 32px;
-}
 
-body:not(.dark) .pipeline-body {
-    background-color: #0A0A0A;
-    color: #E1EFFF;
-    border: 1px solid rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: 600;
+
+    padding: 60px 80px;
+
+    border-radius: 44px;
+
+    /* 🍎 GLASS */
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.6),
+        rgba(255,255,255,0.4)
+    );
+
+    backdrop-filter: blur(8px) saturate(150%);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.4),
+        0 8px 30px rgba(0,0,0,0.08);
+
+    color: #111;
+
+    transition: all 0.3s ease;
 }
 
 body.dark .pipeline-body {
-    background-color: #E1EFFF;
-    color: #0A0A0A;
+    background: linear-gradient(
+        to bottom,
+        rgba(20,20,20,0.7),
+        rgba(20,20,20,0.5)
+    );
+
+    backdrop-filter: blur(8px) saturate(130%);
+    -webkit-backdrop-filter: blur(8px) saturate(130%);
 
     border: 1px solid rgba(255,255,255,0.08);
 
-    box-shadow: 
-        0 10px 30px rgba(0,0,0,0.6),
-        0 0 40px rgba(255,255,255,0.1);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        0 10px 30px rgba(0,0,0,0.6);
+
+    color: #EDEDED;
+}
+
+/* hover */
+.pipeline-body:hover {
+    transform: translateY(-6px) scale(1.02);
+
+    border: 1px solid rgba(255,255,255,0.7);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.5),
+        0 12px 40px rgba(0,0,0,0.12);
+}
+
+body.dark .pipeline-body:hover {
+    border: 1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 14px 45px rgba(0,0,0,0.7);
 }

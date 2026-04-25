@@ -145,8 +145,23 @@ const ImageSlider = ({ slides }) => {
   // ✅ THEME-BASED CARD STYLE (FINAL FIX)
   const slideStylesWithBackground = {
     ...slideStyles,
-    backgroundColor: isDark ? "#E1EFFF" : "#0A0A0A",
-    color: isDark ? "#0A0A0A" : "#E1EFFF",
+
+    background: isDark
+      ? "linear-gradient(to bottom, rgba(20,20,20,0.7), rgba(20,20,20,0.5))"
+      : "linear-gradient(to bottom, rgba(255,255,255,0.6), rgba(255,255,255,0.4))",
+
+    backdropFilter: "blur(8px) saturate(150%)",
+    WebkitBackdropFilter: "blur(8px) saturate(150%)",
+
+    border: isDark
+      ? "1px solid rgba(255,255,255,0.08)"
+      : "1px solid rgba(255,255,255,0.5)",
+
+    boxShadow: isDark
+      ? "inset 0 1px 0 rgba(255,255,255,0.05), 0 10px 30px rgba(0,0,0,0.6)"
+      : "inset 0 1px 0 rgba(255,255,255,0.4), 0 8px 30px rgba(0,0,0,0.08)",
+
+    color: "inherit",
   };
 
   const handleClick = (e) => {

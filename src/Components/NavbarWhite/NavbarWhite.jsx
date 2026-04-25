@@ -12,24 +12,30 @@ import AutoIcon from '../../assets/auto.svg'
 
 const NavbarWhite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [theme, setTheme] = useState("auto")
 
-  // ✅ NEW: scroll state
+  // 🔥 DEFAULT LIGHT (IMPORTANT CHANGE)
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem("theme")
+    return saved ? saved : "light"
+  })
+
   const [scrolled, setScrolled] = useState(false)
 
   const handleLinkClick = () => {
     setIsMenuOpen(false)
   }
 
-  // ✅ Load saved theme on mount
+  // ✅ Load saved theme (first load fallback = light)
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme")
     if (savedTheme) {
       setTheme(savedTheme)
+    } else {
+      setTheme("light")
     }
   }, [])
 
-  // ✅ Apply theme to body
+  // ✅ Apply theme
   useEffect(() => {
     localStorage.setItem("theme", theme)
 
@@ -42,7 +48,7 @@ const NavbarWhite = () => {
     }
   }, [theme])
 
-  // ✅ NEW: scroll detection
+  // ✅ Scroll detection
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40)
@@ -52,53 +58,65 @@ const NavbarWhite = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const isDark = theme === "dark" || 
-  (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  const isDark =
+    theme === "dark" ||
+    (theme === "auto" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
 
   return (
     <nav className={`container-white ${scrolled ? "scrolled" : ""}`}>
-      
+
       {/* LOGO */}
       <div className='logo-box'>
         <Link to={'/'}><img src={isDark ? logoOutlineDark : logoOutlineWhite} className='logo-outline'/></Link>
         <Link to={'/'}><img src={isDark ? logoTextDark : logoTextWhite} className='logo-text'/></Link>
       </div>
 
-      {/* ACTIONS */}
-      <div className="nav-actions">
-
-        {/* Theme Toggle */}
-        <div 
-          className="theme-toggle"
-          onClick={() => {
-            setTheme(prev => 
-              prev === "auto" ? "light" : 
-              prev === "light" ? "dark" : "auto"
-            )
-          }}
-        >
-          {theme === "light" && <img src={SunIcon} alt="light" />}
-          {theme === "dark" && <img src={MoonIcon} alt="dark" />}
-          {theme === "auto" && <img src={AutoIcon} alt="auto" />}
-        </div>
-
-        {/* Menu */}
+      {/* ACTIONS (ONLY MENU NOW) */}
+      <div className={`nav-actions ${isMenuOpen ? "hidden" : ""}`}>
         <div className='menu-btn' onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen 
-            ? <IoClose className="menu-icon" /> 
+          {isMenuOpen
+            ? <IoClose className="menu-icon" />
             : <IoMenu className="menu-icon" />
           }
         </div>
-
       </div>
 
-      {/* NAV LINKS */}
+      {/* NAV MENU */}
       <ul className={isMenuOpen ? 'nav-links active' : 'nav-links'}>
+
+        {/* 🔥 NEW: MENU HEADER (THEME + CLOSE) */}
+        <div className="menu-header">
+
+          {/* THEME TOGGLE (MOVED HERE) */}
+          <div
+            className="theme-toggle"
+            onClick={() => {
+              setTheme(prev =>
+                prev === "auto" ? "light" :
+                prev === "light" ? "dark" : "auto"
+              )
+            }}
+          >
+            {theme === "light" && <img src={SunIcon} alt="light" />}
+            {theme === "dark" && <img src={MoonIcon} alt="dark" />}
+            {theme === "auto" && <img src={AutoIcon} alt="auto" />}
+          </div>
+
+          {/* CLOSE BUTTON */}
+          <div className='menu-btn' onClick={() => setIsMenuOpen(false)}>
+            <IoClose className="menu-icon" />
+          </div>
+
+        </div>
+
+        {/* LINKS */}
         <Link to={'/science'} className='link-black science-link' onClick={handleLinkClick}>Science</Link>
         <Link to={'/pipeline'} className='link-black' onClick={handleLinkClick}>Pipeline</Link>
         <Link to={'/news-updates'} className='link-black' onClick={handleLinkClick}>News</Link>
         <Link to={'/team'} className='link-black' onClick={handleLinkClick}>Team</Link>
         <Link to={'/contact'} className='link-black' onClick={handleLinkClick}>Contact</Link>
+
       </ul>
 
     </nav>

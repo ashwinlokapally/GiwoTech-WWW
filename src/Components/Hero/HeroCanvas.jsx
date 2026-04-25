@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from "react";
 
 const isMobile = window.innerWidth < 768;
 const NUM_CONES = isMobile ? 150 : 500;
-const RADIUS = 3;
+const RADIUS = 2.4;
 
 function SphereSystem({ isDarkRef, shouldAnimateRef }) {
   const meshRef = useRef();
