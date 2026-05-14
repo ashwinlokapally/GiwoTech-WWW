@@ -13,7 +13,7 @@ import AutoIcon from '../../assets/auto.svg'
 const NavbarWhite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  // 🔥 DEFAULT LIGHT (IMPORTANT CHANGE)
+  // DEFAULT LIGHT
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem("theme")
     return saved ? saved : "light"
@@ -25,7 +25,7 @@ const NavbarWhite = () => {
     setIsMenuOpen(false)
   }
 
-  // ✅ Load saved theme (first load fallback = light)
+  // Load saved theme
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme")
     if (savedTheme) {
@@ -35,7 +35,7 @@ const NavbarWhite = () => {
     }
   }, [])
 
-  // ✅ Apply theme
+  // Apply theme
   useEffect(() => {
     localStorage.setItem("theme", theme)
 
@@ -48,7 +48,7 @@ const NavbarWhite = () => {
     }
   }, [theme])
 
-  // ✅ Scroll detection
+  // Scroll detection
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40)
@@ -72,7 +72,7 @@ const NavbarWhite = () => {
         <Link to={'/'}><img src={isDark ? logoTextDark : logoTextWhite} className='logo-text'/></Link>
       </div>
 
-      {/* ACTIONS (ONLY MENU NOW) */}
+      {/* ACTIONS */}
       <div className={`nav-actions ${isMenuOpen ? "hidden" : ""}`}>
         <div className='menu-btn' onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen
@@ -85,10 +85,10 @@ const NavbarWhite = () => {
       {/* NAV MENU */}
       <ul className={isMenuOpen ? 'nav-links active' : 'nav-links'}>
 
-        {/* 🔥 NEW: MENU HEADER (THEME + CLOSE) */}
+        {/* MENU HEADER (THEME + CLOSE) */}
         <div className="menu-header">
 
-          {/* THEME TOGGLE (MOVED HERE) */}
+          {/* THEME TOGGLE */}
           <div
             className="theme-toggle"
             onClick={() => {

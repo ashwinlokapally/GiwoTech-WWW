@@ -72,34 +72,131 @@
       border-top: 1px solid rgba(0,0,0,0.08);
   }
 
-  @media screen and (max-width: 976px) {
+/* ================= ADAPTIVE: TABLETS ================= */
+
+@media screen and (max-width: 976px) {
+
+    .footer {
+        padding: 24px 20px;
+    }
+
     .footer-content {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      justify-content: center;
-      gap: 20px;
-  }
+        display: flex;
+        flex-direction: column;
 
-  .footer-copyright {
-      order: 3;
-      width: 100%;
-      text-align: center;
-      justify-content: center;
-  }
-
-  .social-links {
-      order: 1;
-      margin: 0;
-      width: 100%;
-      justify-content: center;
-  }
-
-  .footer-links {
-      order: 2;
-      width: 100%;
+        align-items: center;
         justify-content: center;
+
+        gap: 20px;
+
+        text-align: center;
+    }
+
+    .footer-copyright {
+        order: 3;
+
+        justify-self: unset;
+        justify-content: center;
+
+        text-align: center;
+
+        max-width: 420px;
+
+        line-height: 1.6;
+    }
+
+    .social-links {
+        order: 1;
+
+        justify-self: unset;
+
+        justify-content: center;
+
+        gap: 18px;
+    }
+
+    .footer-links {
+        order: 2;
+
+        justify-self: unset;
+
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 14px;
+    }
+}
+
+/* ================= ADAPTIVE: MOBILE ================= */
+
+@media screen and (max-width: 768px) {
+
+    .footer {
+        padding: 22px 18px;
+    }
+
+    .footer-copyright {
+        font-size: 0.95rem;
+    }
+
+    .footer-link {
+        font-size: 0.95rem;
+    }
+
+    .footer-icon {
+        font-size: 22px;
+    }
+}
+
+/* ================= ADAPTIVE: SMALL PHONES ================= */
+
+@media screen and (max-width: 480px) {
+
+    .footer {
+        padding: 20px 16px;
+    }
+
+    .footer-content {
+        gap: 16px;
+    }
+
+    .footer-copyright {
+        font-size: 0.85rem;
+        line-height: 1.5;
+
+        max-width: 280px;
+    }
+
+    .footer-links {
         flex-direction: column;
         gap: 10px;
-  }
+    }
+
+    .footer-link {
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        gap: 16px;
+    }
+
+    .footer-icon {
+        font-size: 20px;
+    }
+}
+
+/* ================= TOUCH DEVICES ================= */
+
+@media (hover: none), (pointer: coarse) {
+
+    .footer-icon:hover {
+        transform: none;
+        opacity: 1;
+    }
+
+    .footer-link:hover {
+        text-decoration: none;
+    }
 }

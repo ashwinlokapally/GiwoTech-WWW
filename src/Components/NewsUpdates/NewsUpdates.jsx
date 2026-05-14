@@ -1,67 +1,81 @@
 import React from 'react';
 import './NewsUpdates.css'
 import { useNavigate } from 'react-router-dom'
-import ImageSlider from './ImageSlider'; 
+import ImageSlider from './ImageSlider';
+
+import newsData from '../../data/newsData';
+import updatesData from '../../data/updatesData';
 
 const NewsUpdates = () => {
+
     const navigate = useNavigate();
 
     const handleClick = () => {
         navigate('/news');
     };
 
-    const slides = [
-        { 
-            title: "BARDA NEWS", 
-            text: "GiwoTech's cutting-edge AI models for accelerating precision therapeutics discovery through viral modeling caught the attention of BARDA (Biomedical Advanced Research and Development Authority).", 
-            link: "https://medicalcountermeasures.gov/newsroom/2024/ai-challenge/",
-        },
-        { 
-            title: "BUSINESS WIRE NEWS", 
-            text: "Giwotech has made it to the final round of The Eddies, the signature innovation competition organized by the Massachusetts Innovation Network.", 
-            link: "https://www.businesswire.com/news/home/20230607005549/en/Massachusetts-Innovation-Network-Announces-its-2023-Eddies-Finalists",
-        },
-        { 
-            title: "COMING SOON", 
-            text: "Stay Tuned for Exciting Updates", 
-            link: "",
-        },
-    ];
-
-    const containerStyles = {
-        width: "650px",
-        height: "390px",
-        margin: "0 auto",
-    };
+    // derive slider data from newsData
+    const slides = newsData.map((item) => ({
+        title: item.title,
+        text: item.shortText,
+        link: item.link,
+    }));
 
     return (
         <div className='NewsUpdates-main'>
-            <h1 className='NewsUpdates-heading'>NEWS</h1>
-            <div style={containerStyles}>
+
+            <h1 className='NewsUpdates-heading'>
+                NEWS
+            </h1>
+
+            <div className='news-slider-wrapper'>
                 <ImageSlider slides={slides} />
             </div>
+
             <div className='NewsUpdates-Button'>
-                <button className='btn' onClick={handleClick}>More News</button>
+                <button
+                    className='btn'
+                    onClick={handleClick}
+                >
+                    More News
+                </button>
             </div>
+
             <div className='Updates-main'>
+
                 <div className='Updates-heading'>
                     <h1>UPDATES</h1>
                 </div>
+
                 <div className='Updates-container'>
-                    <div className='update-one update-container-box'>
-                        <a href='https://www.linkedin.com/posts/activity-7205365734921678848-GaIk?utm_source=share&utm_medium=member_desktop' target='_blank' rel="noopener noreferrer">
-                            <p>Imagination in Action summit at MIT CSAIL. Click here to read more.</p>
-                            <p>June 7, 2024</p>
-                        </a>
-                    </div>
-                    <div className='update-two update-container-box'>
-                        <a href='https://www.linkedin.com/posts/massinnovationnetwork_eddies-activity-7119683321789337601-JWWk?utm_source=share&utm_medium=member_desktop' target='_blank' rel='noopener noreferrer'>
-                            <p>GiwoTech at Massachusetts Innovation Network #Eddies. Click here to read more.</p>
-                            <p>November 8, 2023</p>
-                        </a>
-                    </div>
+
+                    {updatesData.map((update, index) => (
+
+                        <div
+                            key={index}
+                            className='update-container-box'
+                        >
+
+                            <a
+                                href={update.link}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+
+                                <p>{update.text}</p>
+
+                                <p>{update.date}</p>
+
+                            </a>
+
+                        </div>
+
+                    ))}
+
                 </div>
+
             </div>
+
         </div>
     );
 };

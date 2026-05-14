@@ -12,7 +12,7 @@ const slideStyles = {
   textAlign: "center",
   padding: "20px",
   boxSizing: "border-box",
-  transition: "all 0.3s ease", // smooth theme transition
+  transition: "all 0.3s ease",
 };
 
 const textContainerStyles = {
@@ -40,22 +40,62 @@ const rightArrowStyles = {
   position: "absolute",
   top: "50%",
   transform: "translate(0, -50%)",
-  right: "-40px",
+  right: window.innerWidth <= 768 ? "12px" : "-40px",
+
   fontSize: "40px",
   color: "var(--text)",
-  zIndex: 1,
+
+  zIndex: 5,
   cursor: "pointer",
+
+  width: "42px",
+  height: "42px",
+
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  background: "transparent",
+  border: "none",
+  borderRadius: "0",
+
+  boxShadow: "none",
+
+  backdropFilter: "none",
+  WebkitBackdropFilter: "none",
+
+  transition: "all 0.25s ease",
 };
 
 const leftArrowStyles = {
   position: "absolute",
   top: "50%",
   transform: "translate(0, -50%)",
-  left: "-40px",
+  left: window.innerWidth <= 768 ? "12px" : "-40px",
+
   fontSize: "40px",
   color: "var(--text)",
-  zIndex: 1,
+
+  zIndex: 5,
   cursor: "pointer",
+
+  width: "42px",
+  height: "42px",
+
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  background: "transparent",
+  border: "none",
+  borderRadius: "0",
+
+  boxShadow: "none",
+
+  backdropFilter: "none",
+  WebkitBackdropFilter: "none",
+
+  transition: "all 0.25s ease",
 };
 
 const sliderStyles = {
@@ -93,16 +133,16 @@ const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // ✅ THEME STATE (FIX)
+  // THEME STATE
   const [isDark, setIsDark] = useState(false);
 
-  // ✅ OBSERVE THEME CHANGES (FIX)
+  // OBSERVE THEME CHANGES
   useEffect(() => {
     const updateTheme = () => {
       setIsDark(document.body.classList.contains("dark"));
     };
 
-    updateTheme(); // 🔥 IMPORTANT (initial sync AFTER mount)
+    updateTheme();
 
     const observer = new MutationObserver(updateTheme);
 
@@ -142,7 +182,7 @@ const ImageSlider = ({ slides }) => {
     return () => clearInterval(slideInterval);
   }, [goToNext, isPaused]);
 
-  // ✅ THEME-BASED CARD STYLE (FINAL FIX)
+  // THEME-BASED CARD STYLE
   const slideStylesWithBackground = {
     ...slideStyles,
 

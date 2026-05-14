@@ -19,7 +19,6 @@ const Hero = () => {
       setIsDark(hasDark);
     };
 
-    // run once after mount
     updateTheme();
 
     const observer = new MutationObserver(updateTheme);
@@ -32,7 +31,7 @@ const Hero = () => {
     return () => observer.disconnect();
   }, []);
 
-  // 🔥 Intersection Observer (NEW)
+  // Intersection Observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {

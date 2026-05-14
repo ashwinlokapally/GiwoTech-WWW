@@ -9,7 +9,6 @@ const Info = () => {
   const viewerRef = useRef(null);
   const topViewerRef = useRef(null);
 
-  // ✅ FIX: do NOT read theme during initial render
   const [isDark, setIsDark] = useState(false);
 
   const handleClick = () => {
@@ -23,7 +22,6 @@ const Info = () => {
       setIsDark(hasDark);
     };
 
-    // 🔥 CRITICAL: sync AFTER mount
     updateTheme();
 
     const observer = new MutationObserver(updateTheme);
@@ -47,7 +45,6 @@ const Info = () => {
 
     const isMobile = window.innerWidth < 768;
 
-    // 🔥 destroy old viewers
     if (viewerRef.current) {
       viewerRef.current.clear();
       viewerRef.current = null;

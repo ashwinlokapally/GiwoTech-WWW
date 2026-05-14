@@ -157,3 +157,228 @@ body.dark .update-container-box:hover {
     rgba(25,25,25,0.5)
   );
 }
+
+.news-slider-wrapper {
+    width: 650px;
+    height: 390px;
+
+    margin: 0 auto;
+
+    position: relative;
+}
+
+/* ================= ADAPTIVE: COMPACT LAPTOPS ================= */
+
+@media screen and (max-width: 1200px) {
+
+    .NewsUpdates-main {
+        padding-top: 120px;
+        padding-bottom: 160px;
+    }
+
+    .news-slider-wrapper {
+        width: min(620px, 90%);
+        height: 370px;
+    }
+
+    .NewsUpdates-heading,
+    .Updates-heading {
+        padding-bottom: 42px;
+    }
+
+    .Updates-container {
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 88%;
+    }
+
+    .update-container-box {
+        font-size: 1.1rem;
+    }
+}
+
+/* ================= ADAPTIVE: TABLETS ================= */
+
+@media screen and (max-width: 968px) {
+
+    .NewsUpdates-main {
+        padding-top: 115px;
+        padding-bottom: 130px;
+    }
+
+    .news-slider-wrapper {
+        width: min(92%, 560px);
+        height: 340px;
+    }
+
+    .NewsUpdates-heading h1,
+    .Updates-heading h1 {
+        font-size: 2.4rem;
+    }
+
+    .NewsUpdates-Button {
+        padding-top: 48px;
+        padding-bottom: 80px;
+    }
+
+    .Updates-container {
+        width: 92%;
+
+        height: 160px;
+
+        margin-right: auto;
+
+        padding-right: 12px;
+    }
+
+    .update-container-box {
+        margin-left: 0;
+
+        padding:
+            14px
+            18px;
+
+        font-size: 1rem;
+    }
+
+    .update-container-box a {
+        gap: 16px;
+    }
+
+    .update-container-box p:last-child {
+        white-space: nowrap;
+    }
+}
+
+/* ================= ADAPTIVE: MOBILE ================= */
+
+@media screen and (max-width: 768px) {
+
+    .NewsUpdates-main {
+        padding-top: 105px;
+        padding-bottom: 100px;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .NewsUpdates-heading {
+        padding-bottom: 32px;
+    }
+
+    .NewsUpdates-heading h1,
+    .Updates-heading h1 {
+        font-size: 2rem;
+    }
+
+    .news-slider-wrapper {
+        width: 100%;
+        max-width: 100%;
+
+        height: auto;
+        min-height: 320px;
+    }
+
+    .NewsUpdates-Button {
+        padding-top: 40px;
+        padding-bottom: 64px;
+    }
+
+    .Updates-heading {
+        padding-bottom: 32px;
+    }
+
+    .Updates-container {
+        width: 100%;
+
+        height: auto;
+        max-height: 260px;
+
+        padding-right: 8px;
+    }
+
+    .update-container-box {
+        border-radius: 22px;
+
+        font-size: 0.95rem;
+
+        padding:
+            14px
+            16px;
+
+        margin-bottom: 14px;
+
+        backdrop-filter: blur(5px) saturate(130%);
+        -webkit-backdrop-filter: blur(5px) saturate(130%);
+    }
+
+    body.dark .update-container-box {
+        backdrop-filter: blur(5px) saturate(120%);
+        -webkit-backdrop-filter: blur(5px) saturate(120%);
+    }
+
+    .update-container-box a {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .update-container-box p:last-child {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    .NewsUpdates-Button .btn:hover,
+    .update-container-box:hover {
+        transform: none;
+    }
+}
+
+/* ================= ADAPTIVE: SMALL PHONES ================= */
+
+@media screen and (max-width: 480px) {
+
+    .NewsUpdates-main {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .NewsUpdates-heading h1,
+    .Updates-heading h1 {
+        font-size: 1.7rem;
+    }
+
+    .news-slider-wrapper {
+        min-height: 290px;
+    }
+
+    .update-container-box {
+        border-radius: 18px;
+
+        font-size: 0.9rem;
+
+        padding:
+            12px
+            14px;
+    }
+
+    .update-container-box p:last-child {
+        font-size: 0.82rem;
+    }
+}
+
+/* ================= ADAPTIVE: TOUCH DEVICES ================= */
+
+@media (hover: none), (pointer: coarse) {
+
+    .update-container-box:hover,
+    .NewsUpdates-Button .btn:hover {
+        transform: none;
+    }
+
+    .Updates-container::-webkit-scrollbar {
+        width: 10px;
+    }
+}

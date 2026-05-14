@@ -92,7 +92,7 @@ body.dark .hero-info-separator::after {
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 80px; /* 👈 controlled spacing */
+  gap: 80px;
   align-items: center;
   padding: 0 5rem 0 5rem;
   height: 650px;
@@ -107,16 +107,65 @@ body.dark .hero-info-separator::after {
 .content {
   position: relative;
   z-index: 2;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.4);
+
   color: var(--text);
+
+  /* GLASS */
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.58),
+    rgba(255,255,255,0.36)
+  );
+
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+
+  border: 1px solid rgba(255,255,255,0.5);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    0 8px 30px rgba(0,0,0,0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
-/* ✅ DARK MODE — real glass (not washed gray) */
+/* DARK MODE GLASS */
 body.dark .content {
-  background: rgba(20, 20, 20, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: linear-gradient(
+    to bottom,
+    rgba(20,20,20,0.68),
+    rgba(20,20,20,0.45)
+  );
+
+  backdrop-filter: blur(8px) saturate(130%);
+  -webkit-backdrop-filter: blur(8px) saturate(130%);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 10px 30px rgba(0,0,0,0.6);
+}
+
+.content:hover {
+  transform: translateY(-6px) scale(1.01);
+
+  border-color: rgba(255,255,255,0.7);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    0 14px 40px rgba(0,0,0,0.12);
+}
+
+body.dark .content:hover {
+  border-color: rgba(255,255,255,0.12);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 16px 45px rgba(0,0,0,0.72);
 }
   
 .science-section .btn {
@@ -136,7 +185,7 @@ body.dark .content {
   background: #111827;
 }
 
-/* ================= PDB TOP VIEW FIX (SAFE ADD) ================= */
+/* ================= PDB TOP VIEW ================= */
 
 .science-section .shapes {
   display: flex;
@@ -145,7 +194,6 @@ body.dark .content {
   flex: 0 0 420px;
 }
 
-/* Ensure viewer actually gets space */
 #pdb-viewer-top {
   width: 100%;
   height: 320px;
@@ -153,17 +201,13 @@ body.dark .content {
   transform: translateY(-10px);
 }
 
-/* Prevent parent from collapsing */
 .science-section {
   align-items: center;
 }
 
-/* Optional: better scaling inside flex */
 .science-section .content {
   flex: 1;
 }
-
-/* 🔥 FIX: Top PDB viewer container */
 
 .shapes {
     display: flex;
@@ -173,7 +217,7 @@ body.dark .content {
 
   #pdb-viewer-top {
     width: 100%;
-    height: 300px; /* 👈 CRITICAL */
+    height: 300px;
     min-height: 250px;
   }
 
@@ -238,7 +282,7 @@ body.dark .next-steps-section .btn:hover {
 }
 
 .info-media {
-  width: 420px;   /* 🔥 control size */
+  width: 420px;
   height: 320px;
   position: relative;
   z-index: 1;
@@ -373,20 +417,65 @@ body.dark .content {
 
   padding: 6px;
 
-  border-radius: 16px;
+  border-radius: 20px;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
 
-  background: rgba(255,255,255,0.6);
-  border: 1px solid rgba(0,0,0,0.15);
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.62),
+    rgba(255,255,255,0.38)
+  );
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+
+  border: 1px solid rgba(255,255,255,0.5);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    0 8px 24px rgba(0,0,0,0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 body.dark .input-container {
-  background: rgba(20,20,20,0.8);
+  background: linear-gradient(
+    to bottom,
+    rgba(20,20,20,0.72),
+    rgba(20,20,20,0.48)
+  );
+
+  backdrop-filter: blur(8px) saturate(130%);
+  -webkit-backdrop-filter: blur(8px) saturate(130%);
+
   border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 10px 28px rgba(0,0,0,0.65);
+}
+
+.input-container:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(255,255,255,0.7);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    0 12px 36px rgba(0,0,0,0.12);
+}
+
+body.dark .input-container:hover {
+  border-color: rgba(255,255,255,0.12);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 14px 40px rgba(0,0,0,0.72);
 }
 
 .input-box{
@@ -418,7 +507,6 @@ body.dark .input-container {
   border-radius: 12px;
 }
 
-/* ✅ Final section button hover (same as Hero) */
 .final-section .btn {
   transition: all 0.3s ease;
 }
@@ -525,5 +613,286 @@ body.dark .final-section .btn:hover {
 
   .input-box {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .content {
+    border-radius: 32px;
+
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.78),
+      rgba(255,255,255,0.62)
+    );
+
+    backdrop-filter: blur(6px) saturate(130%);
+    -webkit-backdrop-filter: blur(6px) saturate(130%);
+
+    padding: 24px;
+  }
+
+  body.dark .content {
+    background: linear-gradient(
+      to bottom,
+      rgba(24,24,24,0.82),
+      rgba(24,24,24,0.68)
+    );
+
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+  }
+
+  .input-container {
+    border-radius: 18px;
+
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.82),
+      rgba(255,255,255,0.68)
+    );
+
+    backdrop-filter: blur(6px) saturate(130%);
+    -webkit-backdrop-filter: blur(6px) saturate(130%);
+  }
+
+  body.dark .input-container {
+    background: linear-gradient(
+      to bottom,
+      rgba(24,24,24,0.84),
+      rgba(24,24,24,0.72)
+    );
+
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+  }
+
+  .content:hover,
+  .input-container:hover {
+    transform: none;
+  }
+}
+
+/* ================= ADAPTIVE: COMPACT LAPTOPS ================= */
+
+@media screen and (max-width: 1200px) {
+
+  .science-section,
+  .next-steps-section {
+    gap: 48px;
+
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .content {
+    border-radius: 38px;
+  }
+
+  .info-content-heading {
+    font-size: 2.5rem;
+  }
+
+  .info-content-description {
+    font-size: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .info-media {
+    width: 360px;
+    height: 280px;
+  }
+
+  .science-section .shapes {
+    flex: 0 0 360px;
+  }
+}
+
+/* ================= ADAPTIVE: TABLETS ================= */
+
+@media screen and (max-width: 1024px) {
+
+  .science-section,
+  .next-steps-section {
+    gap: 36px;
+
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 720px !important;
+
+    border-radius: 34px;
+
+    line-height: 1.8;
+  }
+
+  .info-content-heading {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .info-content-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .science-section .shapes,
+  .info-media {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  #pdb-viewer,
+  #pdb-viewer-top {
+    height: 280px;
+  }
+
+  .final-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .input-container {
+    width: 85%;
+  }
+}
+
+/* ================= ADAPTIVE: MOBILE ================= */
+
+@media screen and (max-width: 768px) {
+
+  .science-section,
+  .next-steps-section {
+    gap: 28px;
+
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .content {
+    border-radius: 28px;
+
+    padding: 1.4rem;
+
+    line-height: 1.6;
+  }
+
+  .info-content-heading {
+    font-size: 1.9rem;
+    padding-bottom: 16px;
+  }
+
+  .info-content-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .science-section .btn,
+  .next-steps-section .btn {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .info-media,
+  .science-section .shapes {
+    max-width: 100%;
+  }
+
+  #pdb-viewer,
+  #pdb-viewer-top {
+    height: 240px;
+    min-height: 220px;
+  }
+
+  .final-section-content h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .final-section-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .input-container {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 10px;
+  }
+
+  .input-box {
+    padding: 14px 16px;
+  }
+}
+
+/* ================= ADAPTIVE: SMALL PHONES ================= */
+
+@media screen and (max-width: 480px) {
+
+  .science-section,
+  .next-steps-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .content {
+    border-radius: 24px;
+
+    padding:
+      1.2rem
+      1.1rem;
+  }
+
+  .info-content-heading {
+    font-size: 1.65rem;
+  }
+
+  .info-content-description {
+    font-size: 0.95rem;
+  }
+
+  #pdb-viewer,
+  #pdb-viewer-top {
+    height: 210px;
+  }
+
+  .final-section {
+    padding-top: 2rem;
+  }
+
+  .final-section-content h2 {
+    font-size: 1.6rem;
+    padding-top: 0;
+  }
+
+  .input-container {
+    border-radius: 16px;
+  }
+}
+
+/* ================= ADAPTIVE: TOUCH DEVICES ================= */
+
+@media (hover: none), (pointer: coarse) {
+
+  .content:hover,
+  .input-container:hover,
+  .science-section .btn:hover,
+  .next-steps-section .btn:hover,
+  .final-section .btn:hover {
+    transform: none;
+  }
+
+  .content {
+    transition:
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .scroll-animate {
+    animation-range: entry 5% cover 30%;
   }
 }

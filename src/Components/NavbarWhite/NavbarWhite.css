@@ -16,7 +16,6 @@
     padding-left: 5%;
     padding-right: 5%;
 
-    /* 👇 NEW */
     padding-top: 14px;
     padding-bottom: 14px;
 
@@ -194,41 +193,13 @@ body.dark .menu-icon {
     transform: scale(1.05);
 }
 
-/* ================= MOBILE ================= */
-
-@media screen and (max-width: 768px) {
-    .nav-links {
-        width: 100%;
-        height: 100vh;
-        left: 0;
-        right: 0;
-
-        align-items: center;
-        justify-content: center;
-
-        transform: translateY(-100%);
-    }
-
-    .nav-links.active {
-        transform: translateY(0);
-    }
-
-    .link-black {
-        width: 100%;
-        text-align: center;
-        padding: 15px 0;
-        margin: 0;
-    }
-}
-
-/* ================= 🔥 APPLE GLASS NAV ================= */
+/* ================= GLASS NAV ================= */
 
 .container-white.scrolled {
-    /* 🔽 SHRINK NAVBAR */
+    /* SHRINK NAVBAR */
     padding-top: 8px;
     padding-bottom: 8px;
 
-    /* 🍎 APPLE GLASS (REFINED) */
     background: linear-gradient(
         to bottom,
         rgba(255, 255, 255, 0.55),
@@ -247,7 +218,6 @@ body.dark .menu-icon {
     will-change: backdrop-filter, padding;
 }
 
-/* 🌙 DARK MODE — NOT JUST INVERT */
 body.dark .container-white.scrolled {
     background: linear-gradient(
         to bottom,
@@ -265,7 +235,7 @@ body.dark .container-white.scrolled {
         0 6px 28px rgba(0, 0, 0, 0.65);
 }
 
-/* 🔽 LOGO SCALE ON SCROLL */
+/* LOGO SCALE ON SCROLL */
 .container-white.scrolled .logo-outline,
 .container-white.scrolled .logo-text {
     transform: scale(0.88);
@@ -274,21 +244,229 @@ body.dark .container-white.scrolled {
 /* ================= MENU HEADER (NEW) ================= */
 
 .menu-header {
-    position: fixed; /* 🔥 key change */
-    top: 14px;       /* same as navbar padding */
-    right: 5%;       /* same as navbar */
+    position: fixed;
+    top: 14px;
+    right: 5%;
 
     display: flex;
     align-items: center;
     gap: 12px;
 
-    z-index: 101; /* above everything */
+    z-index: 101;
 
     transition: opacity 0.2s ease;
 }
 
-/* 🔥 HIDE NAV ACTIONS WHEN MENU OPEN */
+/* HIDE NAV ACTIONS WHEN MENU OPEN */
 .nav-actions.hidden {
     opacity: 0;
     pointer-events: none;
+}
+
+/* ================= ADAPTIVE: COMPACT LAPTOPS ================= */
+
+@media screen and (max-width: 1200px) {
+
+    .container-white {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .logo-text {
+        width: 170px;
+        height: auto;
+    }
+
+    .logo-outline {
+        height: 46px;
+    }
+
+    .nav-links {
+        width: 340px;
+    }
+
+    .link-black {
+        font-size: 1.8rem;
+    }
+}
+
+/* ================= ADAPTIVE: TABLETS ================= */
+
+@media screen and (max-width: 968px) {
+
+    .container-white {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .logo-text {
+        width: 150px;
+    }
+
+    .logo-outline {
+        width: 18px;
+        height: 42px;
+    }
+
+    .nav-links {
+        width: 300px;
+
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .link-black {
+        font-size: 1.6rem;
+    }
+
+    .menu-icon {
+        font-size: 36px;
+    }
+
+    .menu-header {
+        top: 12px;
+    }
+}
+
+/* ================= ADAPTIVE: MOBILE ================= */
+
+@media screen and (max-width: 768px) {
+
+    .container-white {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .container-white.scrolled {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .logo-text {
+        width: 132px;
+    }
+
+    .logo-outline {
+        width: 16px;
+        height: 38px;
+
+        margin-right: 8px;
+    }
+
+    .nav-links {
+
+        position: fixed;
+
+        top: 0;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        min-height: 100svh;
+        height: 100svh;
+
+        align-items: center;
+        justify-content: center;
+
+        padding-left: 24px;
+        padding-right: 24px;
+
+        gap: 1.5rem;
+
+        transform: translateY(-100%);
+
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .link-black {
+        font-size: 1.5rem;
+
+        width: auto;
+        text-align: center;
+
+        margin: 0;
+        padding: 12px 0;
+    }
+
+    .menu-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    .menu-icon {
+        font-size: 34px;
+    }
+
+    .menu-header {
+        top: 10px;
+        right: 20px;
+    }
+}
+
+/* ================= ADAPTIVE: SMALL PHONES ================= */
+
+@media screen and (max-width: 480px) {
+
+    .container-white {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .logo-text {
+        width: 118px;
+    }
+
+    .logo-outline {
+        height: 34px;
+    }
+
+    .link-black {
+        font-size: 1.35rem;
+    }
+
+    .nav-links {
+        gap: 1.2rem;
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .theme-toggle img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ================= ADAPTIVE: TOUCH DEVICES ================= */
+
+@media (hover: none), (pointer: coarse) {
+
+    .menu-btn:hover,
+    .theme-toggle:hover,
+    .link-black:hover {
+        transform: none;
+    }
+
+    .link-black::before {
+        display: none;
+    }
+
+    .container-white.scrolled {
+        backdrop-filter: blur(6px) saturate(130%);
+        -webkit-backdrop-filter: blur(6px) saturate(130%);
+    }
+
+    body.dark .container-white.scrolled {
+        backdrop-filter: blur(6px) saturate(120%);
+        -webkit-backdrop-filter: blur(6px) saturate(120%);
+    }
 }

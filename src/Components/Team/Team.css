@@ -100,24 +100,20 @@
   }
 }
 
-/* ================= 🔥 GLASS CARDS ================= */
+/* ================= GLASS CARDS ================= */
 
 .team-member {
-  /* ✨ GLASS BACKGROUND */
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.55),
     rgba(255, 255, 255, 0.35)
   );
 
-  /* ✨ ULTRA-CRISP GLASS */
   backdrop-filter: blur(8px) saturate(150%);
   -webkit-backdrop-filter: blur(8px) saturate(150%);
 
-  /* ✨ SOFT BORDER */
   border: 1px solid rgba(255, 255, 255, 0.5);
 
-  /* ✨ DEPTH */
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
     0 8px 30px rgba(0,0,0,0.08);
@@ -144,7 +140,7 @@
   overflow: hidden;
 }
 
-/* 🌙 DARK MODE GLASS */
+/* DARK MODE GLASS */
 body.dark .team-member {
   background: linear-gradient(
     to bottom,
@@ -165,17 +161,33 @@ body.dark .team-member {
 /* ================= IMAGES ================= */
 
 .team-image {
-  position: absolute;
-  bottom: 0px;
-  right: 0;
-  margin: 0 auto;
-  width: 364px;
-  height: 364px;
-  display: block;
-}
+    position: absolute;
 
-.founder-image{
-  padding-top: 3rem;
+    bottom: -10px;
+    right: -18px;
+
+    width: 390px;
+    height: 390px;
+
+    object-fit: contain;
+
+    display: block;
+  }
+
+  .founder-image{
+  position: absolute;
+
+  bottom: -6px;
+  left: 50%;
+
+  transform: translateX(-50%) translateY(0px);
+
+  width: 380px;
+  height: 380px;
+
+  object-fit: contain;
+
+  display: block;
 }
 
 /* ================= TEXT ================= */
@@ -290,6 +302,22 @@ body.dark .team-member {
   top: 0;
 }
 
+/* ================= TOUCH ACTIVE STATE ================= */
+
+.team-member.active {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.team-member.active .default-content {
+  opacity: 0;
+}
+
+.team-member.active .detailed-content {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+}
+
 /* ================= LINKEDIN ================= */
 
 .linkedin-icon{
@@ -320,10 +348,8 @@ body.dark .linkedin-icon {
   opacity: 0.7;
 }
 
-/* 🔥 FIX TEXT VISIBILITY ON GLASS */
-
 .team-member {
-  color: #111; /* stronger base text */
+  color: #111;
 }
 
 .team-member .team-default-name,
@@ -357,4 +383,336 @@ body.dark .team-member .team-detailed-title {
 
 body.dark .team-member .team-detailed-bio {
   color: rgba(255, 255, 255, 0.8);
+}
+
+/* ================= ADAPTIVE: COMPACT LAPTOPS ================= */
+
+@media screen and (max-width: 1200px) {
+
+  .team-section {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .team-description {
+    font-size: 1.2rem !important;
+    line-height: 1.7;
+  }
+
+  .team-member {
+    max-width: 380px;
+    height: 500px;
+
+    padding: 40px;
+  }
+
+  .team-member .team-default-name,
+  .team-detailed-name {
+    font-size: 36px;
+  }
+
+  .team-member .team-default-title,
+  .team-detailed-title {
+    font-size: 20px;
+  }
+
+  .team-image {
+    width: 355px;
+    height: 355px;
+
+    right: -16px;
+    bottom: -8px;
+  }
+
+  .founder-image {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* ================= ADAPTIVE: TABLETS ================= */
+
+@media screen and (max-width: 968px) {
+
+  .team-section {
+    padding:
+      120px
+      24px
+      100px;
+  }
+
+  .team-heading {
+    font-size: 2.5rem;
+  }
+
+  .team-description {
+    font-size: 1.05rem !important;
+
+    line-height: 1.7;
+
+    max-width: 720px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .team-founding-heading,
+  .team-advisors {
+    font-size: 2.2rem;
+
+    padding-bottom: 32px;
+  }
+
+  .team-grid,
+  .team-grid-advisors {
+    gap: 32px;
+  }
+
+  .team-member {
+    max-width: 420px;
+    width: 100%;
+
+    height: 480px;
+
+    border-radius: 36px;
+
+    padding: 36px;
+  }
+
+  .team-member .team-default-name,
+  .team-detailed-name {
+    font-size: 2rem;
+  }
+
+  .team-member .team-default-title,
+  .team-detailed-title {
+    font-size: 1.1rem;
+  }
+
+  .team-detailed-bio {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .team-image {
+    width: 340px;
+    height: 340px;
+
+    right: -14px;
+    bottom: -8px;
+  }
+
+  .founder-image {
+    width: 285px;
+    height: 285px;
+  }
+}
+
+/* ================= ADAPTIVE: MOBILE ================= */
+
+@media screen and (max-width: 768px) {
+
+  .team-section {
+    padding:
+      110px
+      20px
+      80px;
+  }
+
+  .team-heading {
+    font-size: 2rem;
+
+    margin-top: 0;
+  }
+
+  .team-description {
+    font-size: 1rem !important;
+
+    line-height: 1.8;
+
+    margin-bottom: 56px;
+  }
+
+  .team-founding-heading,
+  .team-advisors {
+    font-size: 1.8rem;
+
+    line-height: 1.3;
+
+    padding-bottom: 24px;
+  }
+
+  .team-grid,
+  .team-grid-advisors {
+    gap: 24px;
+  }
+
+  .team-member {
+      max-width: 340px;
+
+      height: 390px;
+
+      padding: 22px;
+
+      border-radius: 28px;
+
+      backdrop-filter: blur(6px) saturate(130%);
+      -webkit-backdrop-filter: blur(6px) saturate(130%);
+  }
+
+  body.dark .team-member {
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+  }
+
+  .team-member .team-default-name,
+  .team-detailed-name {
+    font-size: 1.7rem;
+  }
+
+  .team-member .team-default-title,
+  .team-detailed-title {
+    font-size: 1rem;
+
+    padding-bottom: 20px;
+  }
+
+  .team-detailed-bio {
+    font-size: 0.9rem;
+
+    line-height: 1.55;
+
+    margin-top: 8px;
+
+    margin-bottom: 24px;
+  }
+
+  .team-image {
+      width: 255px;
+      height: 255px;
+
+      right: -10px;
+      bottom: -8px;
+
+      transform: none;
+  }
+
+  .founder-image {
+    width: 240px;
+    height: 240px;
+  }
+
+  .linkedin-icon {
+    bottom: 28px;
+  }
+}
+
+/* ================= ADAPTIVE: SMALL PHONES ================= */
+
+@media screen and (max-width: 480px) {
+
+  .team-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .team-heading {
+    font-size: 1.7rem;
+  }
+
+  .team-description {
+    font-size: 0.95rem !important;
+  }
+
+  .team-founding-heading,
+  .team-advisors {
+    font-size: 1.55rem;
+  }
+
+  .team-member {
+    height: 350px;
+
+    padding: 18px;
+
+    border-radius: 22px;
+  }
+
+  .team-member .team-default-name,
+  .team-detailed-name {
+    font-size: 1.45rem;
+  }
+
+  .team-member .team-default-title,
+  .team-detailed-title {
+    font-size: 0.9rem;
+  }
+
+  .team-detailed-bio {
+    font-size: 0.88rem;
+
+    line-height: 1.6;
+  }
+
+  .team-image {
+    width: 290px;
+    height: 290px;
+
+    right: -4px;
+    bottom: -4px;
+
+    transform: none;
+  }
+
+  .founder-image {
+    width: 290px;
+    height: 290px;
+
+    bottom: -4px;
+  }
+
+  .linkedin-icon {
+    font-size: 24px;
+  }
+}
+
+/* ================= TOUCH DEVICES ================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  /* Disable hover system on touch devices */
+
+  .team-member:hover {
+    transform: none;
+  }
+
+  .team-member:hover .default-content {
+    opacity: 1;
+  }
+
+  .team-member:hover .detailed-content {
+    opacity: 0;
+    visibility: hidden;
+    top: -100%;
+  }
+
+  /* Active state becomes ONLY interaction system */
+
+  .team-member.active {
+    transform: translateY(-6px) scale(1.02);
+  }
+
+  .team-member.active .default-content {
+    opacity: 0;
+  }
+
+  .team-member.active .detailed-content {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  .linkedin-icon:hover {
+    transform: none;
+    opacity: 1;
+  }
 }
